@@ -1,0 +1,80 @@
+//
+//  PrefixHeader.pch
+//  HaoHaoZhuApp
+//
+//  Created by Brances on 2018/9/22.
+//  Copyright © 2018年 Brances. All rights reserved.
+//
+
+#ifndef PrefixHeader_pch
+#define PrefixHeader_pch
+
+#ifdef __OBJC__
+
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
+
+#import <AFNetworking/AFNetworking.h>
+#import <FMDB/FMDB.h>
+#import <IQKeyboardManager/IQKeyboardManager.h>
+#import <KVOController/KVOController.h>
+#import <Masonry/Masonry.h>
+#import <MBProgressHUD/MBProgressHUD.h>
+#import <YYKit/YYKit.h>
+#import <MJRefresh/MJRefresh.h>
+#import <SDWebImage/UIImageView+WebCache.h>
+//#import "UIImageView+WebCache.h"
+
+#import "YYFPSLabel.h"
+#import "YYTableView.h"
+#import "YYTableViewCell.h"
+#import "NSArray+ZMAdd.h"
+#import "ZMColor.h"
+#import "ZMEnum.h"
+#import "ZMBaseModel.h"
+#import "UIView+SafeArea.h"
+#import "NSDictionary+NotNullKey.h"
+#import "ZMHelpUtil.h"
+#import "ZMNetWorkManager.h"
+#import "ZMSettingManager.h"
+#import "MBProgressHUD+JDragon.h"
+#import "ZMApi.h"
+#import "ZMUser.h"
+#import "UILabel+Utils.h"
+#import "ZMFont.h"
+#import "ZMImageView.h"
+#import "ZMCustomGifHeader.h"
+#import "ZMCustomGifFooter.h"
+#import "AppDelegate.h"
+#import "ZMSearchView.h"
+
+#endif
+
+#ifdef DEBUG // 调试状态, 打开LOG功能
+#define HBLog(...) NSLog(__VA_ARGS__)
+#else // 发布状态, 关闭LOG功能
+#define HBLog(...)
+#endif
+
+#define SystemVersion ([UIDevice currentDevice].systemVersion.floatValue)
+#define IOS7_AND_LATER (SystemVersion >= 7.0)
+#define IOS5_AND_LATER (SystemVersion >= 5.0)
+#define IOS8_AND_LATER (SystemVersion >= 8.0)
+#define IOS8 ([[[UIDevice currentDevice] systemVersion] doubleValue] >=8.0 ? YES : NO)
+#define ios8 [[[UIDevice currentDevice] systemVersion] floatValue] >=8.0f
+#define ios7 ([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f) && ([[[UIDevice currentDevice] systemVersion] floatValue] < 8.0f)
+#define ios6 [[[UIDevice currentDevice] systemVersion] floatValue] < 7.0f
+#define ios7AndLater [[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0f
+#define IOS_VERSION_10 (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)?(YES):(NO)
+
+#define KVerifyHttpSuccessCode(response) [response[@"code"] integerValue] == 1
+
+#define KKechainAcountUUIDName   @"KKechainAcountUUIDName"
+#define placeholderAvatarImage                [YYImage imageWithColor:[ZMColor appBgGrayColor]]
+#define placehoderRectangleImage            [UIImage imageNamed:@"ip_cover_place"]
+#define placehoderSquareImage                [UIImage imageNamed:@"bgf"]
+
+#define KRecommendMarginLeftSpace       20.f
+#define KRecommendMarginRightSpace      20.f
+
+#endif /* PrefixHeader_pch */
