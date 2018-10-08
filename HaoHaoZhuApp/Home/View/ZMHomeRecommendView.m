@@ -10,6 +10,7 @@
 #import "ZMRecommendHeadMenuCell.h"
 #import "ZMHomeRecommendCell.h"
 #import "ZMHouseExampleViewController.h"
+#import "ZMArticleDetailViewController.h"
 //#import "AppDelegate.h"
 
 @interface ZMHomeRecommendView()<UICollectionViewDelegate,UICollectionViewDataSource>
@@ -148,7 +149,10 @@
     }else if(indexPath.section == 1){
         //点击文章详情
         HBLog(@"点击了%ld",indexPath.row);
-        
+        ZMRecommendModel *model = [_homeModel.recommendList.list safeObjectAtIndex:indexPath.row];
+        ZMArticleDetailViewController *vc = [[ZMArticleDetailViewController alloc] init];
+        vc.aid = model.article_info.aid;
+        [self.viewController.navigationController pushViewController:vc animated:YES];
     }
 }
 
@@ -164,7 +168,7 @@
         dispatch_group_enter(group);
         [ZMNetWorkManager requestWithType:Post withUrlString:KAPIHomeRecommendMergeHead withParameters:nil withSuccessBlock:^(id response) {
             if (KVerifyHttpSuccessCode(response)) {
-//                HBLog(@"结果=%@",response);
+                //                HBLog(@"结果=%@",response);
                 //找出type = 1006 的
                 NSArray *list = [ZMHelpUtil arrDispose:response[@"data"][@"list"]];
                 for (int i = 0; i < list.count; i++) {
@@ -190,7 +194,7 @@
         param[@"page"] = @(page);
         param[@"refresh"] = @"0";
         [ZMNetWorkManager requestWithType:Post withUrlString:KAPIHomeRecommendMergedList withParameters:param withSuccessBlock:^(id response) {
-//            HBLog(@"结果=%@",response);
+            //            HBLog(@"结果=%@",response);
             if (KVerifyHttpSuccessCode(response)) {
                 if (page == 1) {
                     [self.collectionView.mj_footer resetNoMoreData];
@@ -264,3 +268,4 @@
 }
 
 @end
+

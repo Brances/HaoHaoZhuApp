@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ZMBaseModel.h"
+#import "ZMPictureMetadataModel.h"
 
 @interface ZMUser : ZMBaseModel
 

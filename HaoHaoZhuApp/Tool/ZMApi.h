@@ -17,5 +17,5 @@
 #define KAPIExampleSmallItemList                        @"https://yapi.haohaozhu.com/ArticleSelect/GetSitem"
 #define KAPIExampleBigItemList                           @"https://yapi.haohaozhu.com/ArticleSelect/getarticle"
 #define KAPISearchAllTagList                               @"https://yapi.haohaozhu.com/searchTag/getAll"
-
+#define KAPIArticleDetail                                      @"https://api.haohaozhu.com/index.php/Home/Article/article_detail2_0"
 

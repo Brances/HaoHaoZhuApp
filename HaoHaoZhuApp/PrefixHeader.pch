@@ -73,8 +73,11 @@
 #define placeholderAvatarImage                [YYImage imageWithColor:[ZMColor appBgGrayColor]]
 #define placehoderRectangleImage            [UIImage imageNamed:@"ip_cover_place"]
 #define placehoderSquareImage                [UIImage imageNamed:@"bgf"]
+#define KNavgationLeftBackIconBlack         [UIImage imageNamed:@"icon_uniform_back_b"]
+#define KNavgationLeftBackIconWhite         [UIImage imageNamed:@"icon_uniform_back_w"]
 
 #define KRecommendMarginLeftSpace       20.f
 #define KRecommendMarginRightSpace      20.f
 
 #endif /* PrefixHeader_pch */
+

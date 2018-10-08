@@ -130,7 +130,7 @@
 - (void)setupNavView{
     [super setupNavView];//icon_uniform_back_b   back_no_border
     [self.navView.centerButton setTitle:@"整屋案例" forState:UIControlStateNormal];
-    [self.navView.leftButton setImage:[UIImage imageNamed:@"icon_uniform_back_b"] forState:UIControlStateNormal];
+    [self.navView.leftButton setImage:KNavgationLeftBackIconBlack forState:UIControlStateNormal];
     [self.navView.rightButton setImage:[UIImage imageNamed:@"ich_search"] forState:UIControlStateNormal];
     self.navView.isHaveLine = YES;
 }

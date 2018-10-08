@@ -63,5 +63,7 @@
 		<string>Gotham-Book.otf</string>
 		<string>Gotham-Bold.otf</string>
 	</array>
+	<key>UIViewControllerBasedStatusBarAppearance</key>
+	<false/>
 </dict>
 </plist>
