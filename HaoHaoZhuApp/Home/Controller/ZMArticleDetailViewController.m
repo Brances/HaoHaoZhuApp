@@ -2,7 +2,7 @@
 //  ZMArticleDetailViewController.m
 //  HaoHaoZhuApp
 //
-//  Created by ABC on 2018/10/7.
+//  Created by Brances on 2018/10/7.
 //  Copyright © 2018年 Brances. All rights reserved.
 //
 
@@ -10,12 +10,14 @@
 #import "ZMArticleDetailModel.h"
 #import "ZMArticleDetailPhotoContentCell.h"
 
-@interface ZMArticleDetailViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface ZMArticleDetailViewController ()<UITableViewDataSource,UITableViewDelegate,KSPhotoBrowserDelegate>
 
 @property (nonatomic, strong) ZMArticleDetailModel *model;
 @property (nonatomic, strong) UIScrollView              *scrollView;
 @property (nonatomic, strong) UIView                       *mainView;
 @property (nonatomic, strong) YYTableView              *tableView;
+
+@property (nonatomic, strong) NSArray *items;
 
 @end
 
@@ -34,6 +36,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNavView];
+//    [KSPhotoBrowser setImageManagerClass:KSSDImageManager.class];
+//    [KSPhotoBrowser setImageViewClass:FLAnimatedImageView.class];
+    
+    [KSPhotoBrowser setImageManagerClass:KSYYImageManager.class];
+    [KSPhotoBrowser setImageViewClass:YYAnimatedImageView.class];
+    
 }
 
 - (void)setupNavView{
@@ -220,7 +228,40 @@
     }
     ZMArticlePhotoInfoModel *model = [self.model.article_info.show_photo_info objectAtIndex:indexPath.section];
     cell.model = [model.show_pics objectAtIndex:indexPath.row];
+    @weakify(self);
+    @weakify(cell);
+    cell.didTapImageBlock = ^{
+        HBLog(@"点击了图片");
+        NSMutableArray *items = @[].mutableCopy;
+        KSPhotoItem *item = [KSPhotoItem itemWithSourceView:weak_cell.coverImg imageUrl:[NSURL URLWithString:weak_cell.model.ne_pic_url]];
+        [items addObject:item];
+        [weak_self showBrowserWithPhotoItems:items selectedIndex:0];
+    };
     return cell;
+}
+
+- (void)showBrowserWithPhotoItems:(NSArray *)items selectedIndex:(NSUInteger)selectedIndex {
+    self.items = items;
+    KSPhotoBrowser *browser = [KSPhotoBrowser browserWithPhotoItems:items selectedIndex:selectedIndex];
+    browser.delegate = self;
+    browser.dismissalStyle = KSPhotoBrowserInteractiveDismissalStyleScale;
+    browser.backgroundStyle = KSPhotoBrowserBackgroundStyleBlack;
+    browser.loadingStyle = KSPhotoBrowserImageLoadingStyleIndeterminate;
+    browser.pageindicatorStyle = KSPhotoBrowserPageIndicatorStyleText;
+    browser.loadingStyle = KSPhotoBrowserImageLoadingStyleDeterminate;
+    browser.bounces = NO;
+    [browser showFromViewController:self];
+}
+
+// MARK: - KSPhotoBrowserDelegate
+
+- (void)ks_photoBrowser:(KSPhotoBrowser *)browser didSelectItem:(KSPhotoItem *)item atIndex:(NSUInteger)index {
+    NSLog(@"selected index: %ld", index);
+}
+
+- (void)ks_photoBrowser:(KSPhotoBrowser *)browser didLongPressItem:(KSPhotoItem *)item atIndex:(NSUInteger)index {
+    UIImage *image = [browser imageForItem:item];
+    NSLog(@"long pressed image:%@", image);
 }
 
 #pragma mark - 任务

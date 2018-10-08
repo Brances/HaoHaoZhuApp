@@ -47,6 +47,7 @@
 #import "ZMCustomGifFooter.h"
 #import "AppDelegate.h"
 #import "ZMSearchView.h"
+#import "KSPhotoBrowser.h"
 
 #endif
 

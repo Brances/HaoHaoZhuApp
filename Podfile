@@ -9,8 +9,10 @@ target 'HaoHaoZhuApp' do
     pod 'FMDB'				#数据库  2.7.2
     pod 'MBProgressHUD'		#提示框  1.1.0
     pod 'SDWebImage'		#图片缓存 4.3.3
-    pod	'KVOController'		#facebook监听 1.2.0
-    pod  'Masonry'              #AutoLayout 1.1.0
+    pod 'KVOController'		#facebook监听 1.2.0
+    pod 'Masonry'              #AutoLayout 1.1.0
     pod 'MJRefresh'             #刷新  3.1.15.3
-
+    pod 'FLAnimatedImage'   #gif播放
+    pod 'SDWebImage/GIF'
+    
 end

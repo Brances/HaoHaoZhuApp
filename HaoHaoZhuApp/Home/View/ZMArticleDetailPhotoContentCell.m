@@ -2,7 +2,7 @@
 //  ZMArticleDetailPhotoContentCell.m
 //  HaoHaoZhuApp
 //
-//  Created by ABC on 2018/10/7.
+//  Created by Brances on 2018/10/7.
 //  Copyright © 2018年 Brances. All rights reserved.
 //
 
@@ -22,7 +22,10 @@
 - (void)configureUI{
     
     self.coverImg = [ZMImageView new];
+    self.coverImg.userInteractionEnabled = YES;
     [self.contentView addSubview:self.coverImg];
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(clickImage:)];
+    [self.coverImg addGestureRecognizer:tap];
     
     self.remarkLabel = [UILabel new];
     self.remarkLabel.numberOfLines = 0;
@@ -38,6 +41,12 @@
 //    [self.coverImg sd_setImageWithURL:[NSURL URLWithString:model.ori_pic_url] placeholderImage:placeholderAvatarImage];
     [self.coverImg setAnimationLoadingImage:[NSURL URLWithString:model.ori_pic_url] placeholder:placeholderAvatarImage];
     [self.remarkLabel setText:model.remark lineSpacing:10];
+}
+
+- (void)clickImage:(UITapGestureRecognizer *)tap{
+    if (self.didTapImageBlock) {
+        self.didTapImageBlock();
+    }
 }
 
 - (void)layoutSubviews{

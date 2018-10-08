@@ -2,7 +2,7 @@
 //  ZMArticleDetailPhotoContentCell.h
 //  HaoHaoZhuApp
 //
-//  Created by ABC on 2018/10/7.
+//  Created by Brances on 2018/10/7.
 //  Copyright © 2018年 Brances. All rights reserved.
 //
 
@@ -13,5 +13,6 @@
 @property (nonatomic, strong) ZMImageView *coverImg;
 @property (nonatomic, strong) UILabel           *remarkLabel;
 @property (nonatomic, strong) ZMArticlePhotoContentInfoModel *model;
+@property (nonatomic, copy) void(^didTapImageBlock)(void);
 
 @end

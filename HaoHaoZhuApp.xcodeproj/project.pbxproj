@@ -11,6 +11,13 @@
 		28091AA721609FB500BE2555 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 28091AA521609FB500BE2555 /* UICollectionViewLeftAlignedLayout.m */; };
 		28091AAA2160A4DC00BE2555 /* ZMSearchTagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28091AA92160A4DC00BE2555 /* ZMSearchTagModel.m */; };
 		28091AAD2160A75500BE2555 /* ZMSearchTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28091AAC2160A75500BE2555 /* ZMSearchTagCell.m */; };
+		285592C0216B5D9F0037443A /* KSPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592B5216B5D9F0037443A /* KSPhotoBrowser.m */; };
+		285592C1216B5D9F0037443A /* KSPhotoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592B7216B5D9F0037443A /* KSPhotoItem.m */; };
+		285592C2216B5D9F0037443A /* KSPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592B9216B5D9F0037443A /* KSPhotoView.m */; };
+		285592C3216B5D9F0037443A /* KSProgressLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592BB216B5D9F0037443A /* KSProgressLayer.m */; };
+		285592C4216B5D9F0037443A /* KSSDImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592BD216B5D9F0037443A /* KSSDImageManager.m */; };
+		285592C5216B5D9F0037443A /* UIImage+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592BF216B5D9F0037443A /* UIImage+KS.m */; };
+		285592C8216B63A90037443A /* KSYYImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592C7216B63A80037443A /* KSYYImageManager.m */; };
 		286B7A78216069DB00BAD086 /* ZMBeautyNodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 286B7A77216069DB00BAD086 /* ZMBeautyNodeModel.m */; };
 		286B7A7B21606C9200BAD086 /* ZMBeautyNodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 286B7A7A21606C9200BAD086 /* ZMBeautyNodeCell.m */; };
 		2878AAD02159E6B800334739 /* ZMHomeTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2878AACF2159E6B800334739 /* ZMHomeTabView.m */; };
@@ -118,6 +125,21 @@
 		28091AA92160A4DC00BE2555 /* ZMSearchTagModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMSearchTagModel.m; sourceTree = "<group>"; };
 		28091AAB2160A75500BE2555 /* ZMSearchTagCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMSearchTagCell.h; sourceTree = "<group>"; };
 		28091AAC2160A75500BE2555 /* ZMSearchTagCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMSearchTagCell.m; sourceTree = "<group>"; };
+		285592B3216B5D9F0037443A /* KSImageManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSImageManagerProtocol.h; sourceTree = "<group>"; };
+		285592B4216B5D9F0037443A /* KSPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPhotoBrowser.h; sourceTree = "<group>"; };
+		285592B5216B5D9F0037443A /* KSPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPhotoBrowser.m; sourceTree = "<group>"; };
+		285592B6216B5D9F0037443A /* KSPhotoItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPhotoItem.h; sourceTree = "<group>"; };
+		285592B7216B5D9F0037443A /* KSPhotoItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPhotoItem.m; sourceTree = "<group>"; };
+		285592B8216B5D9F0037443A /* KSPhotoView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPhotoView.h; sourceTree = "<group>"; };
+		285592B9216B5D9F0037443A /* KSPhotoView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPhotoView.m; sourceTree = "<group>"; };
+		285592BA216B5D9F0037443A /* KSProgressLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSProgressLayer.h; sourceTree = "<group>"; };
+		285592BB216B5D9F0037443A /* KSProgressLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSProgressLayer.m; sourceTree = "<group>"; };
+		285592BC216B5D9F0037443A /* KSSDImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSSDImageManager.h; sourceTree = "<group>"; };
+		285592BD216B5D9F0037443A /* KSSDImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSSDImageManager.m; sourceTree = "<group>"; };
+		285592BE216B5D9F0037443A /* UIImage+KS.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+KS.h"; sourceTree = "<group>"; };
+		285592BF216B5D9F0037443A /* UIImage+KS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KS.m"; sourceTree = "<group>"; };
+		285592C6216B63A80037443A /* KSYYImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYYImageManager.h; sourceTree = "<group>"; };
+		285592C7216B63A80037443A /* KSYYImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYYImageManager.m; sourceTree = "<group>"; };
 		286B7A76216069DB00BAD086 /* ZMBeautyNodeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMBeautyNodeModel.h; sourceTree = "<group>"; };
 		286B7A77216069DB00BAD086 /* ZMBeautyNodeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMBeautyNodeModel.m; sourceTree = "<group>"; };
 		286B7A7921606C9200BAD086 /* ZMBeautyNodeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMBeautyNodeCell.h; sourceTree = "<group>"; };
@@ -310,6 +332,28 @@
 				28091AA521609FB500BE2555 /* UICollectionViewLeftAlignedLayout.m */,
 			);
 			path = UICollectionViewLeftAlignedLayout;
+			sourceTree = "<group>";
+		};
+		285592B2216B5D9F0037443A /* KSPhotoBrowser */ = {
+			isa = PBXGroup;
+			children = (
+				285592B3216B5D9F0037443A /* KSImageManagerProtocol.h */,
+				285592B4216B5D9F0037443A /* KSPhotoBrowser.h */,
+				285592B5216B5D9F0037443A /* KSPhotoBrowser.m */,
+				285592B6216B5D9F0037443A /* KSPhotoItem.h */,
+				285592B7216B5D9F0037443A /* KSPhotoItem.m */,
+				285592B8216B5D9F0037443A /* KSPhotoView.h */,
+				285592B9216B5D9F0037443A /* KSPhotoView.m */,
+				285592BA216B5D9F0037443A /* KSProgressLayer.h */,
+				285592BB216B5D9F0037443A /* KSProgressLayer.m */,
+				285592BC216B5D9F0037443A /* KSSDImageManager.h */,
+				285592BD216B5D9F0037443A /* KSSDImageManager.m */,
+				285592BE216B5D9F0037443A /* UIImage+KS.h */,
+				285592BF216B5D9F0037443A /* UIImage+KS.m */,
+				285592C6216B63A80037443A /* KSYYImageManager.h */,
+				285592C7216B63A80037443A /* KSYYImageManager.m */,
+			);
+			path = KSPhotoBrowser;
 			sourceTree = "<group>";
 		};
 		286B7A75216069BA00BAD086 /* Model */ = {
@@ -662,6 +706,7 @@
 		289A14AD2156257000F4EE68 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				285592B2216B5D9F0037443A /* KSPhotoBrowser */,
 				28091AA221609FB500BE2555 /* UICollectionViewLeftAlignedLayout */,
 				3568AF49215FB722008164D7 /* TYCyclePagerView */,
 				289A14EB215630E700F4EE68 /* MBProgressHUD+JDragon */,
@@ -955,6 +1000,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HaoHaoZhuApp/Pods-HaoHaoZhuApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
@@ -968,6 +1014,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLEX.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
@@ -1028,6 +1075,7 @@
 				28DF7EFB215784200096E209 /* ZMHomeRecommendView.m in Sources */,
 				289A14DE21562D7900F4EE68 /* NSDictionary+NotNullKey.m in Sources */,
 				286B7A78216069DB00BAD086 /* ZMBeautyNodeModel.m in Sources */,
+				285592C3216B5D9F0037443A /* KSProgressLayer.m in Sources */,
 				289A14C12156257000F4EE68 /* YYTableView.m in Sources */,
 				289DFC18215E197500B50F3A /* ZMHouseExampleViewController.m in Sources */,
 				28B1CE28215B46850056EE15 /* ZMPictureMetadataModel.m in Sources */,
@@ -1050,11 +1098,13 @@
 				289A14C62156257000F4EE68 /* ZMPhoneFormat.m in Sources */,
 				3568AF51215FB722008164D7 /* TYCyclePagerView.m in Sources */,
 				289A14F0215630E800F4EE68 /* MBProgressHUD+JDragon.m in Sources */,
+				285592C2216B5D9F0037443A /* KSPhotoView.m in Sources */,
 				289A14B42156257000F4EE68 /* ZMBaseModel.m in Sources */,
 				28C27639215CC1DC00423021 /* ZMFont.m in Sources */,
 				28DF7EF5215773080096E209 /* ZMHomeTopNavView.m in Sources */,
 				28091AA121609C6F00BE2555 /* ZMSearchKeywordViewController.m in Sources */,
 				28B1CE1E215B166E0056EE15 /* ZMHomeMenuListModel.m in Sources */,
+				285592C5216B5D9F0037443A /* UIImage+KS.m in Sources */,
 				2878AAD3215A254600334739 /* ZMRecommendListModel.m in Sources */,
 				28DF7EF8215783FC0096E209 /* ZMHomeFollowView.m in Sources */,
 				289A14E121562D9A00F4EE68 /* ZMHelpUtil.m in Sources */,
@@ -1066,6 +1116,7 @@
 				289A14CE2156261500F4EE68 /* NSArray+ZMAdd.m in Sources */,
 				289A14C42156257000F4EE68 /* ZMNoPasteTextField.m in Sources */,
 				2878AAE6215A418900334739 /* ZMAdvertListModel.m in Sources */,
+				285592C1216B5D9F0037443A /* KSPhotoItem.m in Sources */,
 				289A14BD2156257000F4EE68 /* YYFPSLabel.m in Sources */,
 				2878AADD215A360700334739 /* ZMCounter.m in Sources */,
 				289A150221563CB500F4EE68 /* ZMTabBarViewController.m in Sources */,
@@ -1086,12 +1137,15 @@
 				289A14DB21562D7500F4EE68 /* UIView+SafeArea.m in Sources */,
 				289A14CF2156261500F4EE68 /* ZMColor.m in Sources */,
 				289A14C9215625E100F4EE68 /* AppDelegate.m in Sources */,
+				285592C4216B5D9F0037443A /* KSSDImageManager.m in Sources */,
 				289A14C22156257000F4EE68 /* YYTableViewCell.m in Sources */,
 				289A14F3215636F900F4EE68 /* ZMHomeViewController.m in Sources */,
 				289A14F921563C3700F4EE68 /* ZMMeViewController.m in Sources */,
 				289A14C32156257000F4EE68 /* ZMEdgeInsetsLabel.m in Sources */,
+				285592C0216B5D9F0037443A /* KSPhotoBrowser.m in Sources */,
 				28B1CE31215B77AF0056EE15 /* ZMRecommendContentView.m in Sources */,
 				289A14BF2156257000F4EE68 /* ZMWebViewController.m in Sources */,
+				285592C8216B63A90037443A /* KSYYImageManager.m in Sources */,
 				289A14F621563C2A00F4EE68 /* ZMShopViewController.m in Sources */,
 				28793FA6216AE7B7007CEB19 /* ZMArticleDetailPhotoContentCell.m in Sources */,
 				289A14EA21562E2900F4EE68 /* ZMNetWorkManager.m in Sources */,
@@ -1251,6 +1305,7 @@
 			baseConfigurationReference = 2B8A994AE290991C00C46EC9 /* Pods-HaoHaoZhuApp.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B989N8J9JW;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1260,6 +1315,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.HaoHaoZhuApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -1269,6 +1326,7 @@
 			baseConfigurationReference = 5FEC0C3B363889A11BFCD93D /* Pods-HaoHaoZhuApp.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = B989N8J9JW;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -1278,6 +1336,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.HaoHaoZhuApp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
