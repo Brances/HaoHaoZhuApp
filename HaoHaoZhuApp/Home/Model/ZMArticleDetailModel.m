@@ -31,13 +31,22 @@
         self.house_info = [[ZMArticleHouseInfoModel alloc] initWithDictionary:articleDic[@"house_info"]];
         NSArray *list = [ZMHelpUtil arrDispose:articleDic[@"show_photo_info"]];
         NSMutableArray *temp = [NSMutableArray new];
-        //加载list
         for (int i = 0; i < list.count; i++) {
             NSDictionary *photoDic = [list safeObjectAtIndex:i];
             ZMArticlePhotoInfoModel *model = [[ZMArticlePhotoInfoModel alloc] initWithDictionary:photoDic];
             [temp addObject:model];
         }
         self.show_photo_info = temp;
+        //问答
+        NSArray *askList = [ZMHelpUtil arrDispose:articleDic[@"question_info"][@"content"]];
+        NSMutableArray *askTemp = [NSMutableArray new];
+        for (int i = 0; i < askList.count; i++) {
+            NSDictionary *askDic = [askList safeObjectAtIndex:i];
+            ZMArticleQuestionAskModel *model = [[ZMArticleQuestionAskModel alloc] initWithDictionary:askDic];
+            [askTemp addObject:model];
+        }
+        self.question_info = askTemp;
+        
     }
     return self;
 }
@@ -63,7 +72,7 @@
         self.space_sort_test = [ZMHelpUtil dispose:dict[@"space_sort_test"]];
         self.desc = [ZMHelpUtil dispose:dict[@"description"]];
         self.status = [ZMHelpUtil dispose:dict[@"status"]];
-        self.addtime = [ZMHelpUtil dispose:dict[@"addtime"]];
+        self.addtime = [[ZMHelpUtil dispose:dict[@"addtime"]] longLongValue];
         self.is_example = [[ZMHelpUtil dispose:dict[@"is_example"]] boolValue];
         self.operation_title = [ZMHelpUtil dispose:dict[@"operation_title"]];
         
@@ -80,7 +89,13 @@
             self.image.width = kScreenWidth;
             self.image.height = self.image.realHeight * kScreenWidth / self.image.realWidth;
         }
-        
+        //版权
+        NSString *createTime = [ZMHelpUtil getCurrenFormatTime:self.addtime];
+        NSString *copyright = @"©声明：本页所有文字与图片禁止以非好好住旗下之产品形态装载或发布";
+        NSString *content = [NSString stringWithFormat:@"创建于 %@\n%@",createTime,copyright];
+        self.declareContent = content;
+        self.declareHeight = [UILabel text:content heightWithFontSize:12 width:kScreenWidth - 20 * 2 lineSpacing:5];
+        self.declareCellHeight = 40 + self.declareHeight + 40;
     }
     return self;
 }
@@ -114,7 +129,6 @@
         self.name = [ZMHelpUtil dispose:dict[@"name"]];
         NSArray *list = [ZMHelpUtil arrDispose:dict[@"show_pics"]];
         NSMutableArray *temp = [NSMutableArray new];
-        //加载list
         for (int i = 0; i < list.count; i++) {
             NSDictionary *picDic = [list safeObjectAtIndex:i];
             ZMArticlePhotoContentInfoModel *model = [[ZMArticlePhotoContentInfoModel alloc] initWithDictionary:picDic];
@@ -162,6 +176,24 @@
         //描述文本高度
         self.remarkHeight = [UILabel text:self.remark heightWithFontSize:15 width:kScreenWidth - 20 * 2 lineSpacing:10];
         self.cellHeight = self.image.height + 10 + self.remarkHeight + 20;
+        
+    }
+    return self;
+}
+
+@end
+
+@implementation ZMArticleQuestionAskModel
+
+- (instancetype)initWithDictionary:(NSDictionary *)dict{
+    if (self = [super initWithDictionary:dict]) {
+        self.type = [ZMHelpUtil dispose:dict[@"type"]];
+        self.title = [ZMHelpUtil dispose:dict[@"title"]];
+        self.text = [ZMHelpUtil dispose:dict[@"text"]];
+        
+        self.titleHeight = [UILabel text:self.title boldHeightWithFontSize:18 width:kScreenWidth - 20 * 2 - 20 * 2 - 10 lineSpacing:5];
+        self.contentHeight = [UILabel text:self.text heightWithFontSize:15 width:kScreenWidth - 20 * 2 - 20 * 2 - 10 lineSpacing:10];
+        self.cellHeight = 20 + self.titleHeight + 5 + self.contentHeight + 10 + 20;
         
     }
     return self;

@@ -13,8 +13,8 @@
 
 @property (nonatomic, strong) ZMImageView *iconView;
 @property (nonatomic, strong) UILabel          *nameLabel;
-@property (nonatomic, strong) UIButton       *followBtn;
-@property (nonatomic, strong) UIButton       *dropDownBtn;
+@property (nonatomic, strong) UIButton        *followBtn;
+@property (nonatomic, strong) UIButton        *dropDownBtn;
 @property (nonatomic, strong) ZMUser         *user;
 
 @end

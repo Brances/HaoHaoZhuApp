@@ -11,6 +11,9 @@
 @interface UILabel (Utils)
 
 - (void)setText:(NSString*)text lineSpacing:(CGFloat)lineSpacing;
+- (void)setCommentText:(NSString*)text lineSpacing:(CGFloat)lineSpacing beginColorRange:(NSRange)range;
+/** 默认文本高度 */
 + (CGFloat)text:(NSString*)text heightWithFontSize:(CGFloat)fontSize width:(CGFloat)width lineSpacing:(CGFloat)lineSpacing;
++ (CGFloat)text:(NSString*)text boldHeightWithFontSize:(CGFloat)fontSize width:(CGFloat)width lineSpacing:(CGFloat)lineSpacing;
 
 @end

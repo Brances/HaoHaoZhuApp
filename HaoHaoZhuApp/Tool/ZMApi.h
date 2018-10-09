@@ -18,4 +18,7 @@
 #define KAPIExampleBigItemList                           @"https://yapi.haohaozhu.com/ArticleSelect/getarticle"
 #define KAPISearchAllTagList                               @"https://yapi.haohaozhu.com/searchTag/getAll"
 #define KAPIArticleDetail                                      @"https://api.haohaozhu.com/index.php/Home/Article/article_detail2_0"
+#define KAPIArticleBaseCommentList                   @"https://capi.haohaozhu.com/index.php/Home/Comments/base_comment2_14"
+#define KAPIArticleRelaRecommend                     @"https://yapi.haohaozhu.com/Article/RelaRecommend"
+
 

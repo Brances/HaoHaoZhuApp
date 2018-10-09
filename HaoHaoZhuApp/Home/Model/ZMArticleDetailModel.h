@@ -8,7 +8,8 @@
 
 #import "ZMBaseModel.h"
 #import "ZMCounter.h"
-@class ZMArticleInfoModel,ZMArticleHeadInfoModel,ZMArticleHouseInfoModel,ZMArticlePhotoInfoModel,ZMArticlePhotoContentInfoModel;
+@class ZMArticleInfoModel,ZMArticleHeadInfoModel,ZMArticleHouseInfoModel;
+@class ZMArticlePhotoInfoModel,ZMArticlePhotoContentInfoModel,ZMArticleQuestionAskModel;
 
 @interface ZMArticleDetailModel : ZMBaseModel
 
@@ -25,6 +26,7 @@
 @property (nonatomic, strong) ZMArticleHeadInfoModel *head_info;
 @property (nonatomic, strong) ZMArticleHouseInfoModel *house_info;
 @property (nonatomic, strong) NSArray<ZMArticlePhotoInfoModel *> *show_photo_info;
+@property (nonatomic, strong) NSArray<ZMArticleQuestionAskModel *> *question_info;
 
 @end
 
@@ -51,12 +53,16 @@
 /** 1 */
 @property (nonatomic, copy) NSString *status;
 /** 1538068511 */
-@property (nonatomic, copy) NSString *addtime;
+@property (nonatomic, assign) long long addtime;
 /** 1 */
 @property (nonatomic, assign) BOOL  is_example;
 /** 110㎡老房改造出50m³收纳空间！不敢相信自己的眼睛！ */
 @property (nonatomic, copy) NSString *operation_title;
 @property (nonatomic, strong) ZMPictureMetadataModel *image;
+/** 版权声明内容 */
+@property (nonatomic, copy) NSString    *declareContent;
+@property (nonatomic, assign) CGFloat     declareCellHeight;
+@property (nonatomic, assign) CGFloat     declareHeight;
 
 @end
 
@@ -116,5 +122,14 @@
 
 @end
 
+@interface ZMArticleQuestionAskModel : ZMBaseModel
 
+@property (nonatomic, copy) NSString *type;
+@property (nonatomic, copy) NSString *title;
+@property (nonatomic, copy) NSString *text;
+@property (nonatomic, assign) CGFloat titleHeight;
+@property (nonatomic, assign) CGFloat contentHeight;
+@property (nonatomic, assign) CGFloat cellHeight;
+
+@end
 

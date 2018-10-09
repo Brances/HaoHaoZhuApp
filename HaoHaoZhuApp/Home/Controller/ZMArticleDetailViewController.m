@@ -9,6 +9,10 @@
 #import "ZMArticleDetailViewController.h"
 #import "ZMArticleDetailModel.h"
 #import "ZMArticleDetailPhotoContentCell.h"
+#import "ZMArticleQuestionAskCell.h"
+#import "ZMArticleCopyrightDeclareCell.h"
+#import "ZMArticleUserProfileCell.h"
+#import "ZMArticleCommentCell.h"
 
 @interface ZMArticleDetailViewController ()<UITableViewDataSource,UITableViewDelegate,KSPhotoBrowserDelegate>
 
@@ -16,6 +20,7 @@
 @property (nonatomic, strong) UIScrollView              *scrollView;
 @property (nonatomic, strong) UIView                       *mainView;
 @property (nonatomic, strong) YYTableView              *tableView;
+@property (nonatomic, strong) NSArray<ZMArticleCommentInfoModel *> *commentList;
 
 @property (nonatomic, strong) NSArray *items;
 
@@ -25,7 +30,7 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
+    
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -36,12 +41,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNavView];
-//    [KSPhotoBrowser setImageManagerClass:KSSDImageManager.class];
-//    [KSPhotoBrowser setImageViewClass:FLAnimatedImageView.class];
-    
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     [KSPhotoBrowser setImageManagerClass:KSYYImageManager.class];
     [KSPhotoBrowser setImageViewClass:YYAnimatedImageView.class];
-    
 }
 
 - (void)setupNavView{
@@ -63,13 +65,14 @@
     [self.scrollView addSubview:self.mainView];
     
     //头部图片
-    UIImageView *coverView = [UIImageView new];
+    ZMImageView *coverView = [ZMImageView new];
     coverView.width = self.model.article_info.head_info.image.width;
     coverView.height = self.model.article_info.head_info.image.height;
     coverView.left = 0;
     coverView.top = 0;
     [self.mainView addSubview:coverView];
-    [coverView setImageWithURL:[NSURL URLWithString:self.model.article_info.head_info.cover_pic_url] placeholder:placeholderAvatarImage];
+//    [coverView setImageWithURL:[NSURL URLWithString:self.model.article_info.head_info.cover_pic_url] placeholder:placeholderAvatarImage];
+    [coverView setAnimationLoadingImage:[NSURL URLWithString:self.model.article_info.head_info.cover_pic_url] placeholder:placeholderAvatarImage];
     
     //标题
     UILabel *titleLabel = [UILabel new];
@@ -150,6 +153,7 @@
 - (void)setAid:(NSString *)aid{
     _aid = aid;
     [self getArticleDetailData];
+    [self getBaseCommnetData];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -184,23 +188,44 @@
 }
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
-    UIView *view = [UIView new];
-    view.size = CGSizeMake(kScreenWidth, 50);
-    view.backgroundColor = [ZMColor whiteColor];
-    UILabel *titleLabel = [UILabel new];
-    titleLabel.textColor = [ZMColor blackColor];
-    titleLabel.font = [ZMFont boldGothamWithSize:18];
-    [view addSubview:titleLabel];
-    ZMArticlePhotoInfoModel *model = [self.model.article_info.show_photo_info objectAtIndex:section];
-    titleLabel.text = model.name;
-    [titleLabel sizeToFit];
-    titleLabel.left = 20;
-    titleLabel.centerY = view.centerY;
-    return view;
+    if (section < self.model.article_info.show_photo_info.count) {
+        UIView *view = [UIView new];
+        view.size = CGSizeMake(kScreenWidth, 50);
+        view.backgroundColor = [ZMColor whiteColor];
+        UILabel *titleLabel = [UILabel new];
+        titleLabel.textColor = [ZMColor blackColor];
+        titleLabel.font = [ZMFont boldGothamWithSize:18];
+        [view addSubview:titleLabel];
+        ZMArticlePhotoInfoModel *model = [self.model.article_info.show_photo_info objectAtIndex:section];
+        titleLabel.text = model.name;
+        [titleLabel sizeToFit];
+        titleLabel.left = 20;
+        titleLabel.centerY = view.centerY;
+        return view;
+    }else if (section == self.model.article_info.show_photo_info.count && self.model.article_info.question_info.count){
+        UIView *view = [UIView new];
+        view.size = CGSizeMake(kScreenWidth, 50);
+        view.backgroundColor = [ZMColor whiteColor];
+        UILabel *titleLabel = [UILabel new];
+        titleLabel.textColor = [ZMColor blackColor];
+        titleLabel.font = [ZMFont boldGothamWithSize:20];
+        [view addSubview:titleLabel];
+        titleLabel.text = @"问答";
+        [titleLabel sizeToFit];
+        titleLabel.left = 20;
+        titleLabel.centerY = view.centerY;
+        return view;
+    }
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
-    return 50;
+    if (section < self.model.article_info.show_photo_info.count) {
+        return 50;
+    }else if (section == self.model.article_info.show_photo_info.count && self.model.article_info.question_info.count){
+        return 50;
+    }
+    return 0.01;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
@@ -208,35 +233,98 @@
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    return self.model.article_info.show_photo_info.count;
+    //图片 + 问题 + 版权声明 + 用户信息 + 用户评论
+    NSInteger section = self.model.article_info.show_photo_info.count + 1 + 1 + 1 + 1;
+    return section;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    ZMArticlePhotoInfoModel *model = [self.model.article_info.show_photo_info objectAtIndex:section];
-    return model.show_pics.count;
+    if (section < self.model.article_info.show_photo_info.count) {
+        ZMArticlePhotoInfoModel *model = [self.model.article_info.show_photo_info objectAtIndex:section];
+        return model.show_pics.count;
+    }else if (section == self.model.article_info.show_photo_info.count){
+        return self.model.article_info.question_info.count;
+    }else if (section == self.model.article_info.show_photo_info.count + 1){
+        return 1;
+    }else if (section == self.model.article_info.show_photo_info.count + 2){
+        return 1;
+    }else if (section == self.model.article_info.show_photo_info.count + 3){
+        return self.commentList.count;
+    }
+    return 0;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ZMArticlePhotoInfoModel *model = [self.model.article_info.show_photo_info objectAtIndex:indexPath.section];
-    return [model.show_pics objectAtIndex:indexPath.row].cellHeight;
+    if (indexPath.section < self.model.article_info.show_photo_info.count) {
+        ZMArticlePhotoInfoModel *model = [self.model.article_info.show_photo_info objectAtIndex:indexPath.section];
+        return [model.show_pics objectAtIndex:indexPath.row].cellHeight;
+    }else if (indexPath.section == self.model.article_info.show_photo_info.count){
+        ZMArticleQuestionAskModel *model = [self.model.article_info.question_info objectAtIndex:indexPath.row];
+        return model.cellHeight;
+    }else if (indexPath.section == self.model.article_info.show_photo_info.count + 1){
+        return self.model.article_info.head_info.declareCellHeight;
+    }else if (indexPath.section == self.model.article_info.show_photo_info.count + 2){
+        return 105;
+    }else if (indexPath.section == self.model.article_info.show_photo_info.count + 3){
+        return [self.commentList objectAtIndex:indexPath.row].cellHeight;
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
-    ZMArticleDetailPhotoContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZMArticleDetailPhotoContentCell"];
-    if (!cell) {
-        cell = [[ZMArticleDetailPhotoContentCell alloc] initWithStyle:0 reuseIdentifier:@"ZMArticleDetailPhotoContentCell"];
+    NSInteger section = indexPath.section;
+    NSInteger row = indexPath.row;
+    if (section < self.model.article_info.show_photo_info.count) {
+        ZMArticleDetailPhotoContentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZMArticleDetailPhotoContentCell"];
+        if (!cell) {
+            cell = [[ZMArticleDetailPhotoContentCell alloc] initWithStyle:0 reuseIdentifier:@"ZMArticleDetailPhotoContentCell"];
+        }
+        ZMArticlePhotoInfoModel *model = [self.model.article_info.show_photo_info objectAtIndex:section];
+        cell.model = [model.show_pics objectAtIndex:row];
+        @weakify(self);
+        @weakify(cell);
+        cell.didTapImageBlock = ^{
+            HBLog(@"点击了图片");
+            NSMutableArray *items = @[].mutableCopy;
+            KSPhotoItem *item = [KSPhotoItem itemWithSourceView:weak_cell.coverImg imageUrl:[NSURL URLWithString:weak_cell.model.ne_pic_url]];
+            [items addObject:item];
+            [weak_self showBrowserWithPhotoItems:items selectedIndex:0];
+        };
+        return cell;
+    }else if (section == self.model.article_info.show_photo_info.count && self.model.article_info.question_info.count){
+        ZMArticleQuestionAskCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZMArticleQuestionAskCell"];
+        if (!cell) {
+            cell = [[ZMArticleQuestionAskCell alloc] initWithStyle:0 reuseIdentifier:@"ZMArticleQuestionAskCell"];
+        }
+        cell.model = [self.model.article_info.question_info safeObjectAtIndex:row];
+        return cell;
+    }else if (section == self.model.article_info.show_photo_info.count + 1){
+        ZMArticleCopyrightDeclareCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZMArticleCopyrightDeclareCell"];
+        if (!cell) {
+            cell = [[ZMArticleCopyrightDeclareCell alloc] initWithStyle:0 reuseIdentifier:@"ZMArticleCopyrightDeclareCell"];
+        }
+        cell.model = self.model;
+        return cell;
+    }else if (section == self.model.article_info.show_photo_info.count + 2){
+        ZMArticleUserProfileCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZMArticleUserProfileCell"];
+        if (!cell) {
+            cell = [[ZMArticleUserProfileCell alloc] initWithStyle:0 reuseIdentifier:@"ZMArticleUserProfileCell"];
+        }
+        cell.model = self.model.user_info;
+        return cell;
+    }else if (section == self.model.article_info.show_photo_info.count + 3 && self.commentList.count){
+        ZMArticleCommentCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZMArticleCommentCell"];
+        if (!cell) {
+            cell = [[ZMArticleCommentCell alloc] initWithStyle:0 reuseIdentifier:@"ZMArticleCommentCell"];
+        }
+        cell.model = [self.commentList safeObjectAtIndex:indexPath.row];
+        return cell;
     }
-    ZMArticlePhotoInfoModel *model = [self.model.article_info.show_photo_info objectAtIndex:indexPath.section];
-    cell.model = [model.show_pics objectAtIndex:indexPath.row];
-    @weakify(self);
-    @weakify(cell);
-    cell.didTapImageBlock = ^{
-        HBLog(@"点击了图片");
-        NSMutableArray *items = @[].mutableCopy;
-        KSPhotoItem *item = [KSPhotoItem itemWithSourceView:weak_cell.coverImg imageUrl:[NSURL URLWithString:weak_cell.model.ne_pic_url]];
-        [items addObject:item];
-        [weak_self showBrowserWithPhotoItems:items selectedIndex:0];
-    };
+    YYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YYTableViewCell"];
+    if (!cell) {
+        cell = [[YYTableViewCell alloc] initWithStyle:0 reuseIdentifier:@"YYTableViewCell"];
+    }
+    cell.backgroundColor = [ZMColor appMoneyColor];
     return cell;
 }
 
@@ -244,17 +332,11 @@
     self.items = items;
     KSPhotoBrowser *browser = [KSPhotoBrowser browserWithPhotoItems:items selectedIndex:selectedIndex];
     browser.delegate = self;
-    browser.dismissalStyle = KSPhotoBrowserInteractiveDismissalStyleScale;
-    browser.backgroundStyle = KSPhotoBrowserBackgroundStyleBlack;
-    browser.loadingStyle = KSPhotoBrowserImageLoadingStyleIndeterminate;
-    browser.pageindicatorStyle = KSPhotoBrowserPageIndicatorStyleText;
-    browser.loadingStyle = KSPhotoBrowserImageLoadingStyleDeterminate;
     browser.bounces = NO;
     [browser showFromViewController:self];
 }
 
 // MARK: - KSPhotoBrowserDelegate
-
 - (void)ks_photoBrowser:(KSPhotoBrowser *)browser didSelectItem:(KSPhotoItem *)item atIndex:(NSUInteger)index {
     NSLog(@"selected index: %ld", index);
 }
@@ -275,6 +357,30 @@
             dispatch_async(dispatch_get_main_queue(), ^{
                 //加载UI
                 [self configureUI];
+            });
+        }
+    } withFailureBlock:^(NSError *error) {
+        HBLog(@"加载错误");
+    }];
+}
+
+#pragma mark - 评论
+- (void)getBaseCommnetData{
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"obj_id"] = _aid;
+    [ZMNetWorkManager requestWithType:Post withUrlString:KAPIArticleBaseCommentList withParameters:param withSuccessBlock:^(id response) {
+        if (KVerifyHttpSuccessCode(response)) {
+            NSArray *list = [ZMHelpUtil arrDispose:response[@"data"][@"new_comments"]];
+            NSMutableArray *temp = [NSMutableArray new];
+            for (int i = 0; i < list.count; i++) {
+                NSDictionary *dic = [list safeObjectAtIndex:i];
+                ZMArticleCommentInfoModel *model = [[ZMArticleCommentInfoModel alloc] initWithDictionary:dic];
+                [temp addObject:model];
+            }
+            self.commentList = temp;
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //加载UI
+                [self.tableView reloadData];
             });
         }
     } withFailureBlock:^(NSError *error) {

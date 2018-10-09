@@ -92,6 +92,11 @@
 		28DF7EF5215773080096E209 /* ZMHomeTopNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DF7EF4215773080096E209 /* ZMHomeTopNavView.m */; };
 		28DF7EF8215783FC0096E209 /* ZMHomeFollowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DF7EF7215783FC0096E209 /* ZMHomeFollowView.m */; };
 		28DF7EFB215784200096E209 /* ZMHomeRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DF7EFA215784200096E209 /* ZMHomeRecommendView.m */; };
+		28F3AFF3216C533100157880 /* ZMArticleQuestionAskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F3AFF2216C533100157880 /* ZMArticleQuestionAskCell.m */; };
+		28F3AFF6216C809100157880 /* ZMArticleCopyrightDeclareCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F3AFF5216C809100157880 /* ZMArticleCopyrightDeclareCell.m */; };
+		28F3AFF9216C8CBA00157880 /* ZMArticleUserProfileCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F3AFF8216C8CBA00157880 /* ZMArticleUserProfileCell.m */; };
+		28F3AFFF216CC2AE00157880 /* ZMArticleCommentInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F3AFFE216CC2AE00157880 /* ZMArticleCommentInfoModel.m */; };
+		28F3B002216CCA7A00157880 /* ZMArticleCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F3B001216CCA7A00157880 /* ZMArticleCommentCell.m */; };
 		3568AF50215FB722008164D7 /* TYPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 3568AF4C215FB722008164D7 /* TYPageControl.m */; };
 		3568AF51215FB722008164D7 /* TYCyclePagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3568AF4D215FB722008164D7 /* TYCyclePagerView.m */; };
 		3568AF52215FB722008164D7 /* TYCyclePagerTransformLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3568AF4E215FB722008164D7 /* TYCyclePagerTransformLayout.m */; };
@@ -286,6 +291,16 @@
 		28DF7EF7215783FC0096E209 /* ZMHomeFollowView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMHomeFollowView.m; sourceTree = "<group>"; };
 		28DF7EF9215784200096E209 /* ZMHomeRecommendView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHomeRecommendView.h; sourceTree = "<group>"; };
 		28DF7EFA215784200096E209 /* ZMHomeRecommendView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMHomeRecommendView.m; sourceTree = "<group>"; };
+		28F3AFF1216C533100157880 /* ZMArticleQuestionAskCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMArticleQuestionAskCell.h; sourceTree = "<group>"; };
+		28F3AFF2216C533100157880 /* ZMArticleQuestionAskCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMArticleQuestionAskCell.m; sourceTree = "<group>"; };
+		28F3AFF4216C809100157880 /* ZMArticleCopyrightDeclareCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMArticleCopyrightDeclareCell.h; sourceTree = "<group>"; };
+		28F3AFF5216C809100157880 /* ZMArticleCopyrightDeclareCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMArticleCopyrightDeclareCell.m; sourceTree = "<group>"; };
+		28F3AFF7216C8CBA00157880 /* ZMArticleUserProfileCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMArticleUserProfileCell.h; sourceTree = "<group>"; };
+		28F3AFF8216C8CBA00157880 /* ZMArticleUserProfileCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMArticleUserProfileCell.m; sourceTree = "<group>"; };
+		28F3AFFD216CC2AE00157880 /* ZMArticleCommentInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMArticleCommentInfoModel.h; sourceTree = "<group>"; };
+		28F3AFFE216CC2AE00157880 /* ZMArticleCommentInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMArticleCommentInfoModel.m; sourceTree = "<group>"; };
+		28F3B000216CCA7A00157880 /* ZMArticleCommentCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMArticleCommentCell.h; sourceTree = "<group>"; };
+		28F3B001216CCA7A00157880 /* ZMArticleCommentCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMArticleCommentCell.m; sourceTree = "<group>"; };
 		2B8A994AE290991C00C46EC9 /* Pods-HaoHaoZhuApp.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-HaoHaoZhuApp.debug.xcconfig"; path = "Pods/Target Support Files/Pods-HaoHaoZhuApp/Pods-HaoHaoZhuApp.debug.xcconfig"; sourceTree = "<group>"; };
 		3568AF4A215FB722008164D7 /* TYCyclePagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerView.h; sourceTree = "<group>"; };
 		3568AF4B215FB722008164D7 /* TYCyclePagerTransformLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TYCyclePagerTransformLayout.h; sourceTree = "<group>"; };
@@ -766,6 +781,8 @@
 				28091AA92160A4DC00BE2555 /* ZMSearchTagModel.m */,
 				28793FA1216AE78F007CEB19 /* ZMArticleDetailModel.h */,
 				28793FA2216AE78F007CEB19 /* ZMArticleDetailModel.m */,
+				28F3AFFD216CC2AE00157880 /* ZMArticleCommentInfoModel.h */,
+				28F3AFFE216CC2AE00157880 /* ZMArticleCommentInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -801,6 +818,14 @@
 				28091AAC2160A75500BE2555 /* ZMSearchTagCell.m */,
 				28793FA5216AE7B7007CEB19 /* ZMArticleDetailPhotoContentCell.h */,
 				28793FA4216AE7B7007CEB19 /* ZMArticleDetailPhotoContentCell.m */,
+				28F3AFF1216C533100157880 /* ZMArticleQuestionAskCell.h */,
+				28F3AFF2216C533100157880 /* ZMArticleQuestionAskCell.m */,
+				28F3AFF4216C809100157880 /* ZMArticleCopyrightDeclareCell.h */,
+				28F3AFF5216C809100157880 /* ZMArticleCopyrightDeclareCell.m */,
+				28F3AFF7216C8CBA00157880 /* ZMArticleUserProfileCell.h */,
+				28F3AFF8216C8CBA00157880 /* ZMArticleUserProfileCell.m */,
+				28F3B000216CCA7A00157880 /* ZMArticleCommentCell.h */,
+				28F3B001216CCA7A00157880 /* ZMArticleCommentCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1108,6 +1133,7 @@
 				2878AAD3215A254600334739 /* ZMRecommendListModel.m in Sources */,
 				28DF7EF8215783FC0096E209 /* ZMHomeFollowView.m in Sources */,
 				289A14E121562D9A00F4EE68 /* ZMHelpUtil.m in Sources */,
+				28F3B002216CCA7A00157880 /* ZMArticleCommentCell.m in Sources */,
 				2896791F215F09A40007A704 /* ZMHouseExampleListModel.m in Sources */,
 				28B1CE34215B8E890056EE15 /* ZMOperationView.m in Sources */,
 				289DFC1E215E2E3700B50F3A /* ZMCategoryScrollView.m in Sources */,
@@ -1126,6 +1152,7 @@
 				289A14FC21563C4600F4EE68 /* ZMBrowseViewController.m in Sources */,
 				3568AF52215FB722008164D7 /* TYCyclePagerTransformLayout.m in Sources */,
 				28B1CE2B215B4E220056EE15 /* ZMUserProfileView.m in Sources */,
+				28F3AFF3216C533100157880 /* ZMArticleQuestionAskCell.m in Sources */,
 				289A14D62156266900F4EE68 /* ZMEnum.m in Sources */,
 				289A14452156127B00F4EE68 /* main.m in Sources */,
 				2896791C215F06F50007A704 /* ZMHouseExampleCell.m in Sources */,
@@ -1134,6 +1161,7 @@
 				289A14BE2156257000F4EE68 /* ZMNavView.m in Sources */,
 				3568AF50215FB722008164D7 /* TYPageControl.m in Sources */,
 				28C2763F215CE1DD00423021 /* ZMCustomGifHeader.m in Sources */,
+				28F3AFFF216CC2AE00157880 /* ZMArticleCommentInfoModel.m in Sources */,
 				289A14DB21562D7500F4EE68 /* UIView+SafeArea.m in Sources */,
 				289A14CF2156261500F4EE68 /* ZMColor.m in Sources */,
 				289A14C9215625E100F4EE68 /* AppDelegate.m in Sources */,
@@ -1143,12 +1171,14 @@
 				289A14F921563C3700F4EE68 /* ZMMeViewController.m in Sources */,
 				289A14C32156257000F4EE68 /* ZMEdgeInsetsLabel.m in Sources */,
 				285592C0216B5D9F0037443A /* KSPhotoBrowser.m in Sources */,
+				28F3AFF9216C8CBA00157880 /* ZMArticleUserProfileCell.m in Sources */,
 				28B1CE31215B77AF0056EE15 /* ZMRecommendContentView.m in Sources */,
 				289A14BF2156257000F4EE68 /* ZMWebViewController.m in Sources */,
 				285592C8216B63A90037443A /* KSYYImageManager.m in Sources */,
 				289A14F621563C2A00F4EE68 /* ZMShopViewController.m in Sources */,
 				28793FA6216AE7B7007CEB19 /* ZMArticleDetailPhotoContentCell.m in Sources */,
 				289A14EA21562E2900F4EE68 /* ZMNetWorkManager.m in Sources */,
+				28F3AFF6216C809100157880 /* ZMArticleCopyrightDeclareCell.m in Sources */,
 				2878AAE3215A3A0F00334739 /* ZMFeedbackListModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
