@@ -22,7 +22,7 @@
         if (self.replay_info && [self.comment.parentid isEqualToString:self.replay_info.comment.cid]) {
             self.title = [NSString stringWithFormat:@"%@ 回复 %@：",self.user_info.nick,self.replay_info.user_info.nick];
         }else{
-            self.title = [NSString stringWithFormat:@"%@:",self.user_info.nick];
+            self.title = [NSString stringWithFormat:@"%@：",self.user_info.nick];
         }
         //整个评论内容
         self.content = [NSString stringWithFormat:@"%@%@",self.title,self.comment.content];

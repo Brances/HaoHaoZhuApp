@@ -56,6 +56,8 @@
 @property (nonatomic, assign) BOOL          is_liked;
 /** 房屋大小 */
 @property (nonatomic, copy) NSString        *house_size;
+/** 几室 */
+@property (nonatomic, copy) NSString        *construction;
 /** 主要内容的高度 */
 @property (nonatomic, assign) CGFloat       mainContentHeight;
 ///** 整个文章的view高度 */
@@ -74,8 +76,10 @@
 @property (nonatomic, assign) CGFloat           moreHeight;
 @property (nonatomic, assign) CGFloat           moreBottom;
 
-/** 整屋案例 */
+/** 整屋案例列表 */
 - (instancetype)initHouseExampleWithDictionary:(NSDictionary *)dict;
+/** 整屋详情相关案例 */
+- (instancetype)initRelaRecommendWidthDictionary:(NSDictionary *)dict;
 
 @end
 

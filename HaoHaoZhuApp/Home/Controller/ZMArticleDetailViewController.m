@@ -13,6 +13,7 @@
 #import "ZMArticleCopyrightDeclareCell.h"
 #import "ZMArticleUserProfileCell.h"
 #import "ZMArticleCommentCell.h"
+#import "ZMArticleRelaRecommendCell.h"
 
 @interface ZMArticleDetailViewController ()<UITableViewDataSource,UITableViewDelegate,KSPhotoBrowserDelegate>
 
@@ -20,8 +21,8 @@
 @property (nonatomic, strong) UIScrollView              *scrollView;
 @property (nonatomic, strong) UIView                       *mainView;
 @property (nonatomic, strong) YYTableView              *tableView;
-@property (nonatomic, strong) NSArray<ZMArticleCommentInfoModel *> *commentList;
-
+@property (nonatomic, strong) NSArray<ZMArticleCommentInfoModel *>            *commentList;
+@property (nonatomic, strong) NSArray<ZMArticleRelaRecommendInfoModel *> *relaRecommendList;
 @property (nonatomic, strong) NSArray *items;
 
 @end
@@ -30,7 +31,6 @@
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
-    
 }
 
 - (void)viewDidDisappear:(BOOL)animated{
@@ -154,10 +154,11 @@
     _aid = aid;
     [self getArticleDetailData];
     [self getBaseCommnetData];
+    [self getRelaRecommendData];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    HBLog(@"边距 = %2.0f",scrollView.contentOffset.y);
+//    HBLog(@"边距 = %2.0f",scrollView.contentOffset.y);
     CGFloat contentOffY = scrollView.contentOffset.y;
     if (contentOffY <= 0) {
         [scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
@@ -215,6 +216,47 @@
         titleLabel.left = 20;
         titleLabel.centerY = view.centerY;
         return view;
+    }else if (section == self.model.article_info.show_photo_info.count + 3 && self.commentList.count){
+        UIView *view = [UIView new];
+        view.size = CGSizeMake(kScreenWidth, 50);
+        view.backgroundColor = [ZMColor whiteColor];
+        UILabel *titleLabel = [UILabel new];
+        titleLabel.textColor = [ZMColor blackColor];
+        titleLabel.font = [ZMFont boldGothamWithSize:20];
+        [view addSubview:titleLabel];
+        titleLabel.text = @"评论";
+        [titleLabel sizeToFit];
+        titleLabel.left = 20;
+        titleLabel.centerY = view.centerY;
+        return view;
+    }
+    return nil;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section{
+    if (section == self.model.article_info.show_photo_info.count + 3 && self.commentList.count && self.model.counter.comment.length){
+        UIView *view = [UIView new];
+        view.size = CGSizeMake(kScreenWidth, 100);
+        view.backgroundColor = [ZMColor whiteColor];
+        
+        UIButton *moreButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        moreButton.size = CGSizeMake(view.width, 40);
+        moreButton.left = 0;
+        moreButton.top = (view.height - moreButton.height) * 0.5;
+        moreButton.titleLabel.font = [ZMFont defaultAppFontWithSize:15];
+        NSString *text = [NSString stringWithFormat:@"查看全部 %@ 条评论",self.model.counter.comment];
+        [moreButton setTitle:text forState:UIControlStateNormal];
+        [moreButton setTitleColor:[ZMColor appMainThemeColor] forState:UIControlStateNormal];
+        [moreButton setImage:[UIImage imageNamed:@"ich_more_green"] forState:UIControlStateNormal];
+        [view addSubview:moreButton];
+        [moreButton setTitleEdgeInsets:UIEdgeInsetsMake(0, - moreButton.imageView.image.size.width, 0, moreButton.imageView.image.size.width)];
+        [moreButton setImageEdgeInsets:UIEdgeInsetsMake(0, moreButton.titleLabel.bounds.size.width + 5, 0, - moreButton.titleLabel.bounds.size.width - 5)];
+        
+        UIView *bottomLine = [UIView new];
+        bottomLine.backgroundColor = [ZMColor appBorderColor];
+        bottomLine.frame = CGRectMake(20, view.height - 0.5, view.width - 20 * 2, 0.5);
+        [view addSubview:bottomLine];
+        return view;
     }
     return nil;
 }
@@ -224,17 +266,22 @@
         return 50;
     }else if (section == self.model.article_info.show_photo_info.count && self.model.article_info.question_info.count){
         return 50;
+    }else if (section == self.model.article_info.show_photo_info.count + 3 && self.commentList.count){
+        return 50;
     }
     return 0.01;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section{
+    if (section == self.model.article_info.show_photo_info.count + 3 && self.commentList.count && self.model.counter.comment.length){
+        return 100;
+    }
     return 0.01;
 }
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
-    //图片 + 问题 + 版权声明 + 用户信息 + 用户评论
-    NSInteger section = self.model.article_info.show_photo_info.count + 1 + 1 + 1 + 1;
+    //图片 + 问题 + 版权声明 + 用户信息 + 用户评论 + 相关推荐案例
+    NSInteger section = self.model.article_info.show_photo_info.count + 1 + 1 + 1 + 1 + 1;
     return section;
 }
 
@@ -250,6 +297,8 @@
         return 1;
     }else if (section == self.model.article_info.show_photo_info.count + 3){
         return self.commentList.count;
+    }else if (section == self.model.article_info.show_photo_info.count + 4){
+        return self.relaRecommendList.count;
     }
     return 0;
 }
@@ -267,6 +316,9 @@
         return 105;
     }else if (indexPath.section == self.model.article_info.show_photo_info.count + 3){
         return [self.commentList objectAtIndex:indexPath.row].cellHeight;
+    }else if (indexPath.section == self.model.article_info.show_photo_info.count + 4){
+        ZMArticleRelaRecommendInfoModel *model = [self.relaRecommendList objectAtIndex:indexPath.row];
+        return model.cellHeight;
     }
     return 0;
 }
@@ -318,6 +370,13 @@
             cell = [[ZMArticleCommentCell alloc] initWithStyle:0 reuseIdentifier:@"ZMArticleCommentCell"];
         }
         cell.model = [self.commentList safeObjectAtIndex:indexPath.row];
+        return cell;
+    }else if (section == self.model.article_info.show_photo_info.count + 4 && self.relaRecommendList.count){
+        ZMArticleRelaRecommendCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ZMArticleRelaRecommendCell"];
+        if (!cell) {
+            cell = [[ZMArticleRelaRecommendCell alloc] initWithStyle:0 reuseIdentifier:@"ZMArticleRelaRecommendCell"];
+        }
+        cell.model = [self.relaRecommendList objectAtIndex:indexPath.row];
         return cell;
     }
     YYTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"YYTableViewCell"];
@@ -383,6 +442,30 @@
                 [self.tableView reloadData];
             });
         }
+    } withFailureBlock:^(NSError *error) {
+        HBLog(@"加载错误");
+    }];
+}
+
+#pragma mark - 相关案例
+- (void)getRelaRecommendData{
+    NSMutableDictionary *param = [NSMutableDictionary dictionary];
+    param[@"article_id"] = _aid;
+    [ZMNetWorkManager requestWithType:Post withUrlString:KAPIArticleRelaRecommend withParameters:param withSuccessBlock:^(id response) {
+        if (KVerifyHttpSuccessCode(response)) {
+            NSArray *list = [ZMHelpUtil arrDispose:response[@"data"][@"recommend_block_list"]];
+            NSMutableArray *temp = [NSMutableArray new];
+            for (int i = 0; i < list.count; i++) {
+                NSDictionary *dic = [list safeObjectAtIndex:i];
+                ZMArticleRelaRecommendInfoModel *model = [[ZMArticleRelaRecommendInfoModel alloc] initWithDictionary:dic];
+                [temp addObject:model];
+            }
+            self.relaRecommendList = temp;
+        }
+            dispatch_async(dispatch_get_main_queue(), ^{
+                //加载UI
+                [self.tableView reloadData];
+            });
     } withFailureBlock:^(NSError *error) {
         HBLog(@"加载错误");
     }];

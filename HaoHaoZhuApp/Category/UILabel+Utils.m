@@ -42,7 +42,6 @@
 
 + (CGFloat)text:(NSString*)text heightWithFontSize:(CGFloat)fontSize width:(CGFloat)width lineSpacing:(CGFloat)lineSpacing{
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, MAXFLOAT)];
-    label.font = [UIFont systemFontOfSize:fontSize];
     //li-song-regular   Gotham-Bold
     label.font = [ZMFont defaultAppFontWithSize:fontSize];
     label.numberOfLines = 0;
@@ -53,7 +52,6 @@
 
 + (CGFloat)text:(NSString*)text boldHeightWithFontSize:(CGFloat)fontSize width:(CGFloat)width lineSpacing:(CGFloat)lineSpacing{
     UILabel* label = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, width, MAXFLOAT)];
-    label.font = [UIFont systemFontOfSize:fontSize];
     //li-song-regular   Gotham-Bold
     label.font = [ZMFont boldGothamWithSize:fontSize];
     label.numberOfLines = 0;

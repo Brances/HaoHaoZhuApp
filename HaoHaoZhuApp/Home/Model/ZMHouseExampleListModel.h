@@ -21,10 +21,10 @@
 
 @interface ZMHouseExampleModel : ZMBaseModel
 
-@property (nonatomic, strong) ZMArticleModel *article_info;
-@property (nonatomic, strong) ZMUser            *user_info;
-@property (nonatomic, strong) ZMCounter         *counter;
-@property (nonatomic, assign) CGFloat   cellHeight;
-@property (nonatomic, assign) CGFloat   cellBottom;
+@property (nonatomic, strong) ZMArticleModel    *article_info;
+@property (nonatomic, strong) ZMUser                *user_info;
+@property (nonatomic, strong) ZMCounter           *counter;
+@property (nonatomic, assign) CGFloat                 cellHeight;
+@property (nonatomic, assign) CGFloat                 cellBottom;
 
 @end

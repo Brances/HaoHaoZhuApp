@@ -25,11 +25,10 @@
 @interface ZMRecommendModel : ZMBaseModel
 
 @property (nonatomic, assign) NSInteger       type;
-@property (nonatomic, strong) ZMUser    *user_info;
+@property (nonatomic, strong) ZMUser          *user_info;
 @property (nonatomic, strong) ZMArticleModel *article_info;
-@property (nonatomic, strong) ZMCounter *counter;
+@property (nonatomic, strong) ZMCounter     *counter;
 @property (nonatomic, strong) ZMFeedbackListModel *recommend_info;
-
 @property (nonatomic, assign) CGFloat   cellHeight;
 
 @end

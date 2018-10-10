@@ -16,7 +16,6 @@
 
 @end
 
-
 @interface ZMCategoryItemModel : ZMBaseModel
 
 @property (nonatomic, copy) NSString *name;

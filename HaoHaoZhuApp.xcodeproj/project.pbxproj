@@ -18,7 +18,6 @@
 		285592C4216B5D9F0037443A /* KSSDImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592BD216B5D9F0037443A /* KSSDImageManager.m */; };
 		285592C5216B5D9F0037443A /* UIImage+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592BF216B5D9F0037443A /* UIImage+KS.m */; };
 		285592C8216B63A90037443A /* KSYYImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592C7216B63A80037443A /* KSYYImageManager.m */; };
-		286B7A78216069DB00BAD086 /* ZMBeautyNodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 286B7A77216069DB00BAD086 /* ZMBeautyNodeModel.m */; };
 		286B7A7B21606C9200BAD086 /* ZMBeautyNodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 286B7A7A21606C9200BAD086 /* ZMBeautyNodeCell.m */; };
 		2878AAD02159E6B800334739 /* ZMHomeTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2878AACF2159E6B800334739 /* ZMHomeTabView.m */; };
 		2878AAD3215A254600334739 /* ZMRecommendListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2878AAD2215A254600334739 /* ZMRecommendListModel.m */; };
@@ -31,6 +30,9 @@
 		28793FA3216AE78F007CEB19 /* ZMArticleDetailModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28793FA2216AE78F007CEB19 /* ZMArticleDetailModel.m */; };
 		28793FA6216AE7B7007CEB19 /* ZMArticleDetailPhotoContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28793FA4216AE7B7007CEB19 /* ZMArticleDetailPhotoContentCell.m */; };
 		28793FA9216AE7D0007CEB19 /* ZMArticleDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28793FA7216AE7D0007CEB19 /* ZMArticleDetailViewController.m */; };
+		28956E51216D91DA0042DB4C /* ZMBeautyNodeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28956E50216D91DA0042DB4C /* ZMBeautyNodeModel.m */; };
+		28956E54216DCE9D0042DB4C /* ZMArticleRelaRecommendModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28956E53216DCE9D0042DB4C /* ZMArticleRelaRecommendModel.m */; };
+		28956E57216DD4750042DB4C /* ZMArticleRelaRecommendCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28956E56216DD4750042DB4C /* ZMArticleRelaRecommendCell.m */; };
 		2896791C215F06F50007A704 /* ZMHouseExampleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2896791B215F06F50007A704 /* ZMHouseExampleCell.m */; };
 		2896791F215F09A40007A704 /* ZMHouseExampleListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2896791E215F09A40007A704 /* ZMHouseExampleListModel.m */; };
 		289A143F2156127B00F4EE68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 289A143E2156127B00F4EE68 /* Assets.xcassets */; };
@@ -145,8 +147,6 @@
 		285592BF216B5D9F0037443A /* UIImage+KS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KS.m"; sourceTree = "<group>"; };
 		285592C6216B63A80037443A /* KSYYImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYYImageManager.h; sourceTree = "<group>"; };
 		285592C7216B63A80037443A /* KSYYImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYYImageManager.m; sourceTree = "<group>"; };
-		286B7A76216069DB00BAD086 /* ZMBeautyNodeModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMBeautyNodeModel.h; sourceTree = "<group>"; };
-		286B7A77216069DB00BAD086 /* ZMBeautyNodeModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMBeautyNodeModel.m; sourceTree = "<group>"; };
 		286B7A7921606C9200BAD086 /* ZMBeautyNodeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMBeautyNodeCell.h; sourceTree = "<group>"; };
 		286B7A7A21606C9200BAD086 /* ZMBeautyNodeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMBeautyNodeCell.m; sourceTree = "<group>"; };
 		2878AACE2159E6B800334739 /* ZMHomeTabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHomeTabView.h; sourceTree = "<group>"; };
@@ -169,6 +169,12 @@
 		28793FA5216AE7B7007CEB19 /* ZMArticleDetailPhotoContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMArticleDetailPhotoContentCell.h; sourceTree = "<group>"; };
 		28793FA7216AE7D0007CEB19 /* ZMArticleDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMArticleDetailViewController.m; sourceTree = "<group>"; };
 		28793FA8216AE7D0007CEB19 /* ZMArticleDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMArticleDetailViewController.h; sourceTree = "<group>"; };
+		28956E4F216D91DA0042DB4C /* ZMBeautyNodeModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMBeautyNodeModel.h; sourceTree = "<group>"; };
+		28956E50216D91DA0042DB4C /* ZMBeautyNodeModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMBeautyNodeModel.m; sourceTree = "<group>"; };
+		28956E52216DCE9D0042DB4C /* ZMArticleRelaRecommendModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMArticleRelaRecommendModel.h; sourceTree = "<group>"; };
+		28956E53216DCE9D0042DB4C /* ZMArticleRelaRecommendModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMArticleRelaRecommendModel.m; sourceTree = "<group>"; };
+		28956E55216DD4750042DB4C /* ZMArticleRelaRecommendCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMArticleRelaRecommendCell.h; sourceTree = "<group>"; };
+		28956E56216DD4750042DB4C /* ZMArticleRelaRecommendCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMArticleRelaRecommendCell.m; sourceTree = "<group>"; };
 		2896791A215F06F50007A704 /* ZMHouseExampleCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHouseExampleCell.h; sourceTree = "<group>"; };
 		2896791B215F06F50007A704 /* ZMHouseExampleCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMHouseExampleCell.m; sourceTree = "<group>"; };
 		2896791D215F09A40007A704 /* ZMHouseExampleListModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHouseExampleListModel.h; sourceTree = "<group>"; };
@@ -371,14 +377,13 @@
 			path = KSPhotoBrowser;
 			sourceTree = "<group>";
 		};
-		286B7A75216069BA00BAD086 /* Model */ = {
+		28956E4E216D91DA0042DB4C /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				286B7A76216069DB00BAD086 /* ZMBeautyNodeModel.h */,
-				286B7A77216069DB00BAD086 /* ZMBeautyNodeModel.m */,
+				28956E4F216D91DA0042DB4C /* ZMBeautyNodeModel.h */,
+				28956E50216D91DA0042DB4C /* ZMBeautyNodeModel.m */,
 			);
-			name = Model;
-			path = ../../../Model;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		289A14292156127B00F4EE68 = {
@@ -596,7 +601,7 @@
 		289A14782156256D00F4EE68 /* Beauty */ = {
 			isa = PBXGroup;
 			children = (
-				286B7A75216069BA00BAD086 /* Model */,
+				28956E4E216D91DA0042DB4C /* Model */,
 				3568AF56215FC54C008164D7 /* View */,
 				289A14792156256D00F4EE68 /* Controller */,
 			);
@@ -783,6 +788,8 @@
 				28793FA2216AE78F007CEB19 /* ZMArticleDetailModel.m */,
 				28F3AFFD216CC2AE00157880 /* ZMArticleCommentInfoModel.h */,
 				28F3AFFE216CC2AE00157880 /* ZMArticleCommentInfoModel.m */,
+				28956E52216DCE9D0042DB4C /* ZMArticleRelaRecommendModel.h */,
+				28956E53216DCE9D0042DB4C /* ZMArticleRelaRecommendModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -826,6 +833,8 @@
 				28F3AFF8216C8CBA00157880 /* ZMArticleUserProfileCell.m */,
 				28F3B000216CCA7A00157880 /* ZMArticleCommentCell.h */,
 				28F3B001216CCA7A00157880 /* ZMArticleCommentCell.m */,
+				28956E55216DD4750042DB4C /* ZMArticleRelaRecommendCell.h */,
+				28956E56216DD4750042DB4C /* ZMArticleRelaRecommendCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1099,7 +1108,6 @@
 				289A14C52156257000F4EE68 /* ZMNormalButton.m in Sources */,
 				28DF7EFB215784200096E209 /* ZMHomeRecommendView.m in Sources */,
 				289A14DE21562D7900F4EE68 /* NSDictionary+NotNullKey.m in Sources */,
-				286B7A78216069DB00BAD086 /* ZMBeautyNodeModel.m in Sources */,
 				285592C3216B5D9F0037443A /* KSProgressLayer.m in Sources */,
 				289A14C12156257000F4EE68 /* YYTableView.m in Sources */,
 				289DFC18215E197500B50F3A /* ZMHouseExampleViewController.m in Sources */,
@@ -1110,12 +1118,14 @@
 				28C27642215CE56C00423021 /* ZMCustomGifFooter.m in Sources */,
 				289A14E821562E2900F4EE68 /* ZMUserManager.m in Sources */,
 				28091AAD2160A75500BE2555 /* ZMSearchTagCell.m in Sources */,
+				28956E54216DCE9D0042DB4C /* ZMArticleRelaRecommendModel.m in Sources */,
 				289DFC15215DF73200B50F3A /* ZMSearchView.m in Sources */,
 				2878AAD02159E6B800334739 /* ZMHomeTabView.m in Sources */,
 				289DFC1B215E230D00B50F3A /* ZMCategoryTypeModel.m in Sources */,
 				289A14E921562E2900F4EE68 /* ZMSettingManager.m in Sources */,
 				286B7A7B21606C9200BAD086 /* ZMBeautyNodeCell.m in Sources */,
 				28B1CE2E215B5AE20056EE15 /* ZMHomeRecommendCell.m in Sources */,
+				28956E51216D91DA0042DB4C /* ZMBeautyNodeModel.m in Sources */,
 				289A14B22156257000F4EE68 /* ZMCustomNavViewController.m in Sources */,
 				28C27631215C98E500423021 /* UILabel+Utils.m in Sources */,
 				28B1CE25215B338E0056EE15 /* ZMRecommendHeadMenuCell.m in Sources */,
@@ -1147,6 +1157,7 @@
 				2878AADD215A360700334739 /* ZMCounter.m in Sources */,
 				289A150221563CB500F4EE68 /* ZMTabBarViewController.m in Sources */,
 				28091AAA2160A4DC00BE2555 /* ZMSearchTagModel.m in Sources */,
+				28956E57216DD4750042DB4C /* ZMArticleRelaRecommendCell.m in Sources */,
 				3568AF59215FC566008164D7 /* ZMBeautyTopBannerCell.m in Sources */,
 				28C2763C215CC5DB00423021 /* ZMImageView.m in Sources */,
 				289A14FC21563C4600F4EE68 /* ZMBrowseViewController.m in Sources */,

@@ -155,4 +155,42 @@
     return self;
 }
 
+- (instancetype)initRelaRecommendWidthDictionary:(NSDictionary *)dict{
+    if (self = [super initWithDictionary:dict]) {
+        self.aid = [ZMHelpUtil dispose:dict[@"aid"]];
+        self.title = [ZMHelpUtil dispose:dict[@"title"]];
+        self.house_size = [ZMHelpUtil dispose:dict[@"house_size"]];
+        self.area = [ZMHelpUtil dispose:dict[@"area"]];
+        self.cover_pic_url = [ZMHelpUtil dispose:dict[@"cover_pic_url"]];
+        self.status = [[ZMHelpUtil dispose:dict[@"status"]] boolValue];
+        self.is_example = [[ZMHelpUtil dispose:dict[@"is_example"]] boolValue];
+        self.remark = [ZMHelpUtil dispose:dict[@"description"]];
+        
+        //解析图片宽高 
+        CGSize size = [ZMHelpUtil getImageSizeWithUrl:self.cover_pic_url];
+        self.image.realWidth = size.width;
+        self.image.realHeight = size.height;
+        //如果取到了宽高 2 : 1,不能按照原图的比例去计算，有些图片比例不一致
+        if (self.image.realWidth && self.image.realHeight) {
+            self.image.width = 240;
+            self.image.height = self.image.width * 0.5;
+//            self.image.height = self.image.realHeight * self.image.width / self.image.realWidth;
+        }
+        
+        if (self.title.length) {
+            UIFont *font = [ZMFont boldGothamWithSize:15];
+            self.titleHeight = font.lineHeight * 2;
+//            self.titleHeight = [ZMHelpUtil heightWithLabelFont:[ZMFont boldGothamWithSize:20] withLabelWidth:self.image.width - 20 * 2 text:self.title];
+        }
+        NSString *construction = [ZMHelpUtil dispose:dict[@"house_construction"]];
+        NSArray *constructionList = [construction componentsSeparatedByString:@","];
+        if (constructionList.count) {
+            self.construction = [ZMHelpUtil dispose:constructionList[0]];
+        }
+        self.mainContentHeight = self.image.height + 20 + self.titleHeight + 20 + 20 + 20;
+        
+    }
+    return self;
+}
+
 @end

@@ -103,22 +103,22 @@
 /** 图片文字内容信息 */
 @interface ZMArticlePhotoContentInfoModel : ZMBaseModel
 
-@property (nonatomic, copy) NSString *photo_id;
-@property (nonatomic, copy) NSString *pic_url;
-@property (nonatomic, copy) NSString *ne_pic_url;
-@property (nonatomic, copy) NSString *ori_pic_url;
-@property (nonatomic, copy) NSString *pic_id;
-@property (nonatomic, copy) NSString *pic_org_id;
-@property (nonatomic, assign) BOOL has_goods;
-@property (nonatomic, copy) NSString *remark;
-@property (nonatomic, assign) CGFloat remarkHeight;
-@property (nonatomic, assign) BOOL has_goods_tag;
-@property (nonatomic, assign) BOOL has_recommend_goods;
-@property (nonatomic, assign) BOOL is_del;
-@property (nonatomic, assign) BOOL is_private;
+@property (nonatomic, copy) NSString        *photo_id;
+@property (nonatomic, copy) NSString        *pic_url;
+@property (nonatomic, copy) NSString        *ne_pic_url;
+@property (nonatomic, copy) NSString        *ori_pic_url;
+@property (nonatomic, copy) NSString        *pic_id;
+@property (nonatomic, copy) NSString        *pic_org_id;
+@property (nonatomic, assign) BOOL           has_goods;
+@property (nonatomic, copy) NSString        *remark;
+@property (nonatomic, assign) CGFloat       remarkHeight;
+@property (nonatomic, assign) BOOL          has_goods_tag;
+@property (nonatomic, assign) BOOL          has_recommend_goods;
+@property (nonatomic, assign) BOOL          is_del;
+@property (nonatomic, assign) BOOL          is_private;
 @property (nonatomic, strong) ZMCounter *counter;
 @property (nonatomic, strong) ZMPictureMetadataModel *image;
-@property (nonatomic, assign) CGFloat   cellHeight;
+@property (nonatomic, assign) CGFloat       cellHeight;
 
 @end
 

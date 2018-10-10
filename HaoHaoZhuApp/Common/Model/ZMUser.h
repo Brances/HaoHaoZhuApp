@@ -20,7 +20,7 @@
 @property (nonatomic, copy) NSString    *area;
 @property (nonatomic, copy) NSString    *province;
 @property (nonatomic, copy) NSString    *city;
-/** 类型 */
+/** 用户类型 0：普通用户 2:公司 */
 @property (nonatomic, copy) NSString    *type;
 @property (nonatomic, copy) NSString    *status;
 /** airbnb民宿微信：ju3648998 */
