@@ -11,3 +11,7 @@
 @interface ZMTabBarViewController : UITabBarController
 
 @end
+
+@interface ZMTabBar : UITabBar
+
+@end

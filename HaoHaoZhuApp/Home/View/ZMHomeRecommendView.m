@@ -77,6 +77,8 @@
         } withFailureBlock:^(NSError *error) {
             HBLog(@"失败");
         }];
+    }else{
+        [self requestGroupTask];
     }
     
 }
