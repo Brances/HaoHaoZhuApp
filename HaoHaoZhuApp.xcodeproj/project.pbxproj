@@ -11,6 +11,7 @@
 		28091AA721609FB500BE2555 /* UICollectionViewLeftAlignedLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 28091AA521609FB500BE2555 /* UICollectionViewLeftAlignedLayout.m */; };
 		28091AAA2160A4DC00BE2555 /* ZMSearchTagModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28091AA92160A4DC00BE2555 /* ZMSearchTagModel.m */; };
 		28091AAD2160A75500BE2555 /* ZMSearchTagCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28091AAC2160A75500BE2555 /* ZMSearchTagCell.m */; };
+		281735CE21C49BD400811716 /* ZMConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 281735CD21C49BD400811716 /* ZMConst.m */; };
 		285592C0216B5D9F0037443A /* KSPhotoBrowser.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592B5216B5D9F0037443A /* KSPhotoBrowser.m */; };
 		285592C1216B5D9F0037443A /* KSPhotoItem.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592B7216B5D9F0037443A /* KSPhotoItem.m */; };
 		285592C2216B5D9F0037443A /* KSPhotoView.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592B9216B5D9F0037443A /* KSPhotoView.m */; };
@@ -71,6 +72,7 @@
 		289A14FC21563C4600F4EE68 /* ZMBrowseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289A14FB21563C4600F4EE68 /* ZMBrowseViewController.m */; };
 		289A14FF21563C5400F4EE68 /* ZMBeautyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289A14FE21563C5400F4EE68 /* ZMBeautyViewController.m */; };
 		289A150221563CB500F4EE68 /* ZMTabBarViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289A150121563CB500F4EE68 /* ZMTabBarViewController.m */; };
+		289B2920216F2E9900B62E60 /* ZMPopCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 289B291F216F2E9900B62E60 /* ZMPopCommentView.m */; };
 		289DFC15215DF73200B50F3A /* ZMSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = 289DFC14215DF73200B50F3A /* ZMSearchView.m */; };
 		289DFC18215E197500B50F3A /* ZMHouseExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 289DFC17215E197500B50F3A /* ZMHouseExampleViewController.m */; };
 		289DFC1B215E230D00B50F3A /* ZMCategoryTypeModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 289DFC1A215E230D00B50F3A /* ZMCategoryTypeModel.m */; };
@@ -132,6 +134,8 @@
 		28091AA92160A4DC00BE2555 /* ZMSearchTagModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMSearchTagModel.m; sourceTree = "<group>"; };
 		28091AAB2160A75500BE2555 /* ZMSearchTagCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMSearchTagCell.h; sourceTree = "<group>"; };
 		28091AAC2160A75500BE2555 /* ZMSearchTagCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMSearchTagCell.m; sourceTree = "<group>"; };
+		281735CC21C49BD400811716 /* ZMConst.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMConst.h; sourceTree = "<group>"; };
+		281735CD21C49BD400811716 /* ZMConst.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMConst.m; sourceTree = "<group>"; };
 		285592B3216B5D9F0037443A /* KSImageManagerProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSImageManagerProtocol.h; sourceTree = "<group>"; };
 		285592B4216B5D9F0037443A /* KSPhotoBrowser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSPhotoBrowser.h; sourceTree = "<group>"; };
 		285592B5216B5D9F0037443A /* KSPhotoBrowser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSPhotoBrowser.m; sourceTree = "<group>"; };
@@ -253,6 +257,8 @@
 		289A14FE21563C5400F4EE68 /* ZMBeautyViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMBeautyViewController.m; sourceTree = "<group>"; };
 		289A150021563CB500F4EE68 /* ZMTabBarViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMTabBarViewController.h; sourceTree = "<group>"; };
 		289A150121563CB500F4EE68 /* ZMTabBarViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMTabBarViewController.m; sourceTree = "<group>"; };
+		289B291E216F2E9900B62E60 /* ZMPopCommentView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMPopCommentView.h; sourceTree = "<group>"; };
+		289B291F216F2E9900B62E60 /* ZMPopCommentView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMPopCommentView.m; sourceTree = "<group>"; };
 		289DFC13215DF73200B50F3A /* ZMSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMSearchView.h; sourceTree = "<group>"; };
 		289DFC14215DF73200B50F3A /* ZMSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMSearchView.m; sourceTree = "<group>"; };
 		289DFC16215E197500B50F3A /* ZMHouseExampleViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHouseExampleViewController.h; sourceTree = "<group>"; };
@@ -719,6 +725,8 @@
 				28C2763D215CE1DD00423021 /* ZMCustomGifHeader.m */,
 				28C27640215CE56B00423021 /* ZMCustomGifFooter.h */,
 				28C27641215CE56C00423021 /* ZMCustomGifFooter.m */,
+				281735CC21C49BD400811716 /* ZMConst.h */,
+				281735CD21C49BD400811716 /* ZMConst.m */,
 			);
 			path = Tool;
 			sourceTree = "<group>";
@@ -835,6 +843,8 @@
 				28F3B001216CCA7A00157880 /* ZMArticleCommentCell.m */,
 				28956E55216DD4750042DB4C /* ZMArticleRelaRecommendCell.h */,
 				28956E56216DD4750042DB4C /* ZMArticleRelaRecommendCell.m */,
+				289B291E216F2E9900B62E60 /* ZMPopCommentView.h */,
+				289B291F216F2E9900B62E60 /* ZMPopCommentView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1129,6 +1139,7 @@
 				289A14B22156257000F4EE68 /* ZMCustomNavViewController.m in Sources */,
 				28C27631215C98E500423021 /* UILabel+Utils.m in Sources */,
 				28B1CE25215B338E0056EE15 /* ZMRecommendHeadMenuCell.m in Sources */,
+				289B2920216F2E9900B62E60 /* ZMPopCommentView.m in Sources */,
 				28793FA9216AE7D0007CEB19 /* ZMArticleDetailViewController.m in Sources */,
 				289A14C62156257000F4EE68 /* ZMPhoneFormat.m in Sources */,
 				3568AF51215FB722008164D7 /* TYCyclePagerView.m in Sources */,
@@ -1191,6 +1202,7 @@
 				289A14EA21562E2900F4EE68 /* ZMNetWorkManager.m in Sources */,
 				28F3AFF6216C809100157880 /* ZMArticleCopyrightDeclareCell.m in Sources */,
 				2878AAE3215A3A0F00334739 /* ZMFeedbackListModel.m in Sources */,
+				281735CE21C49BD400811716 /* ZMConst.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

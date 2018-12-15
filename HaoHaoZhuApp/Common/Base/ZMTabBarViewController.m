@@ -38,7 +38,8 @@
     self.tabBar.layer.shadowOffset = CGSizeMake(0, -1);
     self.tabBar.layer.shadowOpacity = 0.3;
     [[UITabBar appearance] setBackgroundImage:[YYImage imageWithColor:[ZMColor colorWithHexString:@"#FFFFFF" alpha:0.9]]];
-    
+    //去掉tabbar的透明度
+//    [[UITabBar appearance] setTranslucent:NO];
 #if DEBUG
     //显示当前帧率
     [self setupFPSLabel];

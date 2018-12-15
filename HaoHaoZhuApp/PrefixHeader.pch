@@ -48,6 +48,7 @@
 #import "AppDelegate.h"
 #import "ZMSearchView.h"
 #import "KSPhotoBrowser.h"
+#import "ZMConst.h"
 
 #endif
 
@@ -69,6 +70,7 @@
 #define IOS_VERSION_10 (NSFoundationVersionNumber > NSFoundationVersionNumber_iOS_9_x_Max)?(YES):(NO)
 
 #define KVerifyHttpSuccessCode(response) [response[@"code"] integerValue] == 1
+#define KUserDefaults            [NSUserDefaults standardUserDefaults]
 
 #define KKechainAcountUUIDName   @"KKechainAcountUUIDName"
 #define placeholderAvatarImage                [YYImage imageWithColor:[ZMColor appBgGrayColor]]

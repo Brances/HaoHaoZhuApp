@@ -68,7 +68,17 @@
         page ++;
         [weak_self loadMoreData];
     }];
-    [self requestGroupTask];
+    //判断有无获取设备ID
+    if (![KUserDefaults objectForKey:KKeychainDeviceID]) {
+        [ZMNetWorkManager getVisitDeviceID:^(id response) {
+            if (response) {
+                [self requestGroupTask];
+            }
+        } withFailureBlock:^(NSError *error) {
+            HBLog(@"失败");
+        }];
+    }
+    
 }
 
 #pragma mark  设置CollectionView的组数
@@ -81,7 +91,7 @@
 #pragma mark  设置CollectionView每组所包含的个数
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
     if (section == 0) {
-        return _homeModel.menuList.list.count >= 4 ? 4 : 0;
+        return _homeModel.menuList.list.count >= 4 ? 4 : _homeModel.menuList.list.count;
     }else{
         return _homeModel.recommendList.list.count;
     }
@@ -192,7 +202,7 @@
         dispatch_group_enter(group);
         NSMutableDictionary *param = [NSMutableDictionary dictionary];
         param[@"page"] = @(page);
-        param[@"refresh"] = @"0";
+        param[@"refresh"] = @"1";
         [ZMNetWorkManager requestWithType:Post withUrlString:KAPIHomeRecommendMergedList withParameters:param withSuccessBlock:^(id response) {
             //            HBLog(@"结果=%@",response);
             if (KVerifyHttpSuccessCode(response)) {

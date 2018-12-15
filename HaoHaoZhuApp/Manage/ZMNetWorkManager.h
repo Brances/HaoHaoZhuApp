@@ -93,6 +93,9 @@ typedef void( ^ DownloadProgress)(CGFloat);
                          withSuccessBlock:(ResponseSuccess)successBlock
                          withFailureBlock:(ResponseFail)failureBlock;
 
+/** 获取访问设备ID */
++ (void)getVisitDeviceID:(ResponseSuccess)successBlock withFailureBlock:(ResponseFail)failureBlock;
+
 
 @end
 

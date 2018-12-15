@@ -69,6 +69,8 @@
     self.recommendView = [[ZMHomeRecommendView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, self.scrollView.height)];
     [self.scrollView addSubview:self.recommendView];
     
+    
+    
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{

@@ -332,19 +332,20 @@ struct utsname systemInfo;
     return deviceModel;
 }
 
-+ (NSString *)getUniqueDeviceIdentifierAsString{
++ (NSString *)getUniqueDeviceIdentifierAsString:(NSString *)deviceID{
     NSString *appName=[[[NSBundle mainBundle] infoDictionary] objectForKey:(NSString*)kCFBundleNameKey];
-    NSString *applicationUUID =  [YYKeychain getPasswordForService:appName account:KKechainAcountUUIDName];
+    NSString *applicationUUID =  [YYKeychain getPasswordForService:appName account:KKeychainDeviceID];
     if (applicationUUID == nil){
-        applicationUUID  = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
+//        applicationUUID  = [[[UIDevice currentDevice] identifierForVendor] UUIDString];
         NSError *error = nil;
         YYKeychainItem *query = [[YYKeychainItem alloc] init];
         query.service = appName;
-        query.account = KKechainAcountUUIDName;
-        query.password = applicationUUID;
+        query.account = KKeychainDeviceID;
+        query.password = deviceID;
         query.synchronizable = YYKeychainQuerySynchronizationModeNo;
         if ([YYKeychain insertItem:query error:&error]) {
             HBLog(@"插入唯一设备id成功");
+            applicationUUID = deviceID;
         }else{
             HBLog(@"插入唯一设备id失败");
         }
@@ -625,8 +626,16 @@ struct utsname systemInfo;
 
 + (CGSize)getImageSizeWithUrl:(NSString *)url{
     CGSize size;
+    //简单暴力直接根据 "？"拆分
+    NSArray *imageCount = [url componentsSeparatedByString:@"?"];
+    if (imageCount.count < 2) {
+        return CGSizeMake(0, 0);
+    }
+    //获取最后一位
+    NSArray *imageInfo = [[imageCount safeObjectAtIndex:1] componentsSeparatedByString:@"&"];
+    
     //解析图片宽高
-    NSArray *imageInfo = [url componentsSeparatedByString:@"&"];
+//    NSArray *imageInfo = [url componentsSeparatedByString:@"&"];
     HBLog(@"=%@",imageInfo);
     //遍历数组取出宽高
     CGFloat width = 0,height = 0;

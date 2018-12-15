@@ -14,8 +14,8 @@
 #import "ZMArticleUserProfileCell.h"
 #import "ZMArticleCommentCell.h"
 #import "ZMArticleRelaRecommendCell.h"
-
-@interface ZMArticleDetailViewController ()<UITableViewDataSource,UITableViewDelegate,KSPhotoBrowserDelegate>
+#import "ZMPopCommentView.h"
+@interface ZMArticleDetailViewController ()<UITableViewDataSource,UITableViewDelegate,KSPhotoBrowserDelegate,UIGestureRecognizerDelegate>
 
 @property (nonatomic, strong) ZMArticleDetailModel *model;
 @property (nonatomic, strong) UIScrollView              *scrollView;
@@ -24,10 +24,15 @@
 @property (nonatomic, strong) NSArray<ZMArticleCommentInfoModel *>            *commentList;
 @property (nonatomic, strong) NSArray<ZMArticleRelaRecommendInfoModel *> *relaRecommendList;
 @property (nonatomic, strong) NSArray *items;
+@property (nonatomic, weak) ZMPopCommentView  *popCommentView;
+@property (nonatomic, strong) UIButton                      *rootBackgroundButton;
 
 @end
 
 @implementation ZMArticleDetailViewController
+{
+    CGFloat       kMenuHeight;
+}
 
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
@@ -41,6 +46,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setupNavView];
+    kMenuHeight = kScreenHeight - 200;
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent animated:YES];
     [KSPhotoBrowser setImageManagerClass:KSYYImageManager.class];
     [KSPhotoBrowser setImageViewClass:YYAnimatedImageView.class];
@@ -52,6 +58,23 @@
     [self.navView.centerButton setTitleColor:[ZMColor whiteColor] forState:UIControlStateNormal];
     [self.navView.leftButton setImage:KNavgationLeftBackIconWhite forState:UIControlStateNormal];
     self.navView.backgroundColor = [UIColor colorWithWhite:1 alpha:0];
+    [self.navView.centerButton addTarget:self action:@selector(clickShowCommentView) forControlEvents:UIControlEventTouchUpInside];
+}
+
+- (void)clickShowCommentView{
+    ZMPopCommentView *popCommentView = [[ZMPopCommentView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeight - 200)];
+    self.popCommentView = popCommentView;
+    [popCommentView show:YES];
+}
+
+#pragma mark - Gestures
+- (BOOL)gestureRecognizer:(UIGestureRecognizer *)gestureRecognizer shouldBeRequiredToFailByGestureRecognizer:(UIGestureRecognizer *)otherGestureRecognizer {
+    if ([gestureRecognizer isKindOfClass:[UIScreenEdgePanGestureRecognizer class]]) {
+        if ([otherGestureRecognizer.view isKindOfClass:[UIScrollView class]]) {
+            return YES;
+        }
+    }
+    return NO;
 }
 
 - (void)configureUI{

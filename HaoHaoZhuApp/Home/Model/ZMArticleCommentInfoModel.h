@@ -20,6 +20,8 @@
 @property (nonatomic, assign) CGFloat  contentHeight;
 @property (nonatomic, assign) CGFloat  cellHeight;
 
+- (instancetype)initPopCommentWithDictionary:(NSDictionary *)dict;
+
 @end
 
 /** 评论 */
@@ -31,6 +33,7 @@
 @property (nonatomic, copy) NSString *parentid;
 @property (nonatomic, copy) NSString *content;
 @property (nonatomic, assign) long long addtime;
+@property (nonatomic, copy) NSString *createTimeTip;
 @property (nonatomic, copy) NSString *like_num;
 @property (nonatomic, assign) BOOL  is_owner;
 @property (nonatomic, assign) BOOL  is_like;
