@@ -31,7 +31,7 @@
         self.commentW = self.commentIcon.size.width + self.marginSpace + commentBageW + self.marginLeft * 2;
         self.commentX = (self.commentW - self.commentIcon.size.width - commentBageW - self.marginSpace) * 0.5;
         
-        self.favoriteUrl = @"collect_water~iphone";
+        self.favoriteUrl = @"collect_water";
         self.favoriteIcon = [UIImage imageNamed:self.favoriteUrl];
         CGFloat favoriteBageW = [ZMHelpUtil WidthForString:self.favorite withSizeOfFont:11];
         self.favoriteW = self.commentIcon.size.width + self.marginSpace + favoriteBageW + self.marginLeft * 2;

@@ -16,7 +16,7 @@
 @property (nonatomic, strong) ZMOperationButton *collectBtn;
 @property (nonatomic, strong) ZMOperationButton *likeBtn;
 @property (nonatomic, strong) ZMCounter     *count;
-
+@property (nonatomic, copy) void(^didTapBtn)(NSInteger index);
 
 @end
 

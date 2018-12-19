@@ -22,6 +22,7 @@
 @property (nonatomic, strong) UIScrollView                          *scrollView;
 @property (nonatomic, strong) ZMHomeFollowView              *followView;
 @property (nonatomic, strong) ZMHomeRecommendView    *recommendView;
+@property (nonatomic, strong) UIButton                              *floatBtn;
 
 @end
 
@@ -68,9 +69,17 @@
     
     self.recommendView = [[ZMHomeRecommendView alloc] initWithFrame:CGRectMake(kScreenWidth, 0, kScreenWidth, self.scrollView.height)];
     [self.scrollView addSubview:self.recommendView];
+    self.recommendView.moveBlock = ^(UIScrollView *view) {
+        [weak_self scrollViewDidScroll:view];
+    };
     
-    
-    
+    //添加悬浮按钮
+    self.floatBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    self.floatBtn.size = CGSizeMake(65, 65);
+    self.floatBtn.left = kScreenWidth - self.floatBtn.width - 20;
+    self.floatBtn.top = kScreenHeight - 64 - UIView.sc_bottomInset - self.floatBtn.height;
+    [self.floatBtn setImage:[UIImage imageNamed:@"publish_icon"] forState:UIControlStateNormal];
+    [self.view addSubview:self.floatBtn];
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
@@ -82,7 +91,27 @@
         [scrollView setContentOffset:CGPointMake(0, 0) animated:NO];
         return;
     }
-
+    //scrollView已经有拖拽手势，直接拿到scrollView的拖拽手势
+    UIPanGestureRecognizer *pan = scrollView.panGestureRecognizer;
+    //获取到拖拽的速度 >0 向下拖动 <0 向上拖动
+    CGFloat velocity = [pan velocityInView:scrollView].y;
+    if (velocity <- 5) {
+        //向上拖动，隐藏导航栏
+        [UIView animateWithDuration:0.3 animations:^{
+            self.floatBtn.top = kScreenHeight;
+            self.floatBtn.alpha = 0;
+        } completion:^(BOOL finished) {
+        }];
+    }else if (velocity > 5) {
+        //向下拖动，显示导航栏
+        [UIView animateWithDuration:0.3 animations:^{
+            self.floatBtn.top = kScreenHeight - 64 - UIView.sc_bottomInset - self.floatBtn.height;
+            self.floatBtn.alpha = 1;
+        } completion:^(BOOL finished) {
+        }];
+    }else if(velocity == 0){
+        //停止拖拽
+    }
 }
 
 #pragma mark - ZMHomeTabViewDelegate

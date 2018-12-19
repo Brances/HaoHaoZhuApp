@@ -76,6 +76,9 @@
 #pragma mark - 点击了按钮
 - (void)clickOperationButton:(UIButton *)btn{
     NSInteger tag = btn.tag;
+    if (self.didTapBtn) {
+        self.didTapBtn(tag);
+    }
     if (tag == 0) {
         HBLog(@"分享");
     }else if (tag == 1){

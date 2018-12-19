@@ -13,7 +13,7 @@
 #import "ZMArticleDetailViewController.h"
 //#import "AppDelegate.h"
 
-@interface ZMHomeRecommendView()<UICollectionViewDelegate,UICollectionViewDataSource>
+@interface ZMHomeRecommendView()<UICollectionViewDelegate,UICollectionViewDataSource,UIScrollViewDelegate>
 
 @property (nonatomic, strong) UICollectionView          *collectionView;
 
@@ -81,6 +81,12 @@
         [self requestGroupTask];
     }
     
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView{
+    if (self.moveBlock) {
+        self.moveBlock(scrollView);
+    }
 }
 
 #pragma mark  设置CollectionView的组数

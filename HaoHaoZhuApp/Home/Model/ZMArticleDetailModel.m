@@ -153,8 +153,9 @@
     if (self = [super initWithDictionary:dict]) {
         self.photo_id = [ZMHelpUtil dispose:dict[@"photo_id"]];
         self.pic_url = [ZMHelpUtil dispose:dict[@"pic_url"]];
-        self.ne_pic_url = [ZMHelpUtil dispose:dict[@"new_pic_url"]];
-        self.ori_pic_url = [ZMHelpUtil dispose:dict[@"ori_pic_url"]];
+//        self.ne_pic_url = [ZMHelpUtil dispose:dict[@"new_pic_url"]];  //字段已废弃
+//        self.ori_pic_url = [ZMHelpUtil dispose:dict[@"ori_pic_url"]];
+        self.ori_pic_url = [ZMHelpUtil dispose:dict[@"pic_url"]];
         self.pic_id = [ZMHelpUtil dispose:dict[@"pic_id"]];
         self.pic_org_id = [ZMHelpUtil dispose:dict[@"pic_org_id"]];
         self.has_goods = [[ZMHelpUtil dispose:dict[@"has_goods"]] boolValue];

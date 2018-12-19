@@ -23,6 +23,7 @@
 //#define KAPIArticleDetail                                      @"https://api.haohaozhu.com/index.php/Home/Article/article_detail2_0"//废弃
 #define KAPIArticleDetail                                      KAPIBaseURL@"Article/detail"
 #define KAPIArticleBaseCommentList                   @"https://capi.haohaozhu.com/index.php/Home/Comments/base_comment2_14"
+#define KAPIArticleAllCommentList                       @"https://capi.haohaozhu.com/index.php/Home/Comments/listing2_14"
 #define KAPIArticleRelaRecommend                     KAPIBaseURL@"Article/RelaRecommend"
-
+#define KAPIBrowsePhotoList                               KAPIBaseURL@"photo/RecommendPhoto"  //看图列表
 

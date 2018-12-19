@@ -7,6 +7,7 @@
 //
 
 #import "ZMHomeRecommendCell.h"
+#import "ZMPopCommentView.h"
 
 @implementation ZMHomeRecommendCell
 
@@ -33,7 +34,22 @@
     
     self.operationView = [[ZMOperationView alloc] initWithFrame:CGRectZero];
     self.operationView.backgroundColor = [ZMColor whiteColor];
+    @weakify(self);
+    self.operationView.didTapBtn = ^(NSInteger index) {
+        //弹出评论视图
+        [weak_self openCommentView:index];
+    };
     [self.mainView addSubview:self.operationView];
+    
+}
+
+#pragma mark - 弹出评论视图
+- (void)openCommentView:(NSInteger)index{
+    if (index == 1) {
+        ZMPopCommentView *view = [ZMPopCommentView initFrame:CGRectMake(0, 150, kScreenWidth, kScreenHeight - 150) count:[self.model.counter.comment integerValue] aid:self.model.article_info.aid uid:self.model.user_info.uid];
+        view.showCornerRadius = YES;
+        [view show:YES];
+    }
     
 }
 

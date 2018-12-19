@@ -13,5 +13,6 @@
 @interface ZMHomeRecommendView : UIView
 
 @property (nonatomic, strong) ZMHomeModel       *homeModel;
+@property (nonatomic, copy) void(^moveBlock)(UIScrollView *scrollView);
 
 @end

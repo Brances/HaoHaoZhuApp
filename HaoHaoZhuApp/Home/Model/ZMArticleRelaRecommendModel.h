@@ -2,7 +2,7 @@
 //  ZMArticleRelaRecommendModel.h
 //  HaoHaoZhuApp
 //
-//  Created by ABC on 2018/10/10.
+//  Created by Brances on 2018/10/10.
 //  Copyright © 2018年 Brances. All rights reserved.
 //  文章相关推荐案例
 

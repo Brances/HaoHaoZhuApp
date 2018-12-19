@@ -71,6 +71,10 @@
         self.content = [ZMHelpUtil dispose:dict[@"content"]];
         self.addtime = [[ZMHelpUtil dispose:dict[@"addtime"]] longLongValue];
         self.createTimeTip = [ZMHelpUtil getCurrenFormatTime:self.addtime];
+        
+        NSDate *createDate = [ZMHelpUtil UTCDateFromTimeStamap:[ZMHelpUtil dispose:dict[@"addtime"]]];
+        NSString *createTimeTip = [ZMHelpUtil stringWithTimelineDate:createDate];
+        self.createTimeTip = createTimeTip;
         self.like_num = [ZMHelpUtil dispose:dict[@"like_num"]];
         self.is_owner = [[ZMHelpUtil dispose:dict[@"is_owner"]] boolValue];
         self.is_like = [[ZMHelpUtil dispose:dict[@"is_like"]] boolValue];

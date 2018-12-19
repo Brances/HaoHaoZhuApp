@@ -28,6 +28,8 @@
 + (NSString *)getCurrenVersion;
 #pragma mark - 日期转时间戳
 + (long long)dataChangeTimeInterval:(NSDate *)date;
+#pragma mark - 时间戳转日期
++ (NSDate *)UTCDateFromTimeStamap:(NSString *)timeStamap;
 #pragma mark - 将当前日期转为当前时区日期
 + (NSDate *)getCurrenTimeZone:(NSDate *)date;
 #pragma mark - 将当前日期转为当前时间年月日 = yyyy-MM-dd
@@ -109,5 +111,7 @@
 + (BOOL)saveSingleObject:(id)object to:(NSString *)filename;
 #pragma mark - 解档
 + (id)loadSingleObjectFrom:(NSString *)filename;
+#pragma mark - 将 date 格式化成微博的友好显示
++ (NSString *)stringWithTimelineDate:(NSDate *)date;
 
 @end

@@ -94,7 +94,6 @@
     coverView.left = 0;
     coverView.top = 0;
     [self.mainView addSubview:coverView];
-//    [coverView setImageWithURL:[NSURL URLWithString:self.model.article_info.head_info.cover_pic_url] placeholder:placeholderAvatarImage];
     [coverView setAnimationLoadingImage:[NSURL URLWithString:self.model.article_info.head_info.cover_pic_url] placeholder:placeholderAvatarImage];
     
     //标题
@@ -274,6 +273,7 @@
         [view addSubview:moreButton];
         [moreButton setTitleEdgeInsets:UIEdgeInsetsMake(0, - moreButton.imageView.image.size.width, 0, moreButton.imageView.image.size.width)];
         [moreButton setImageEdgeInsets:UIEdgeInsetsMake(0, moreButton.titleLabel.bounds.size.width + 5, 0, - moreButton.titleLabel.bounds.size.width - 5)];
+        [moreButton addTarget:self action:@selector(openCommentView) forControlEvents:UIControlEventTouchUpInside];
         
         UIView *bottomLine = [UIView new];
         bottomLine.backgroundColor = [ZMColor appBorderColor];
@@ -361,7 +361,7 @@
         cell.didTapImageBlock = ^{
             HBLog(@"点击了图片");
             NSMutableArray *items = @[].mutableCopy;
-            KSPhotoItem *item = [KSPhotoItem itemWithSourceView:weak_cell.coverImg imageUrl:[NSURL URLWithString:weak_cell.model.ne_pic_url]];
+            KSPhotoItem *item = [KSPhotoItem itemWithSourceView:weak_cell.coverImg imageUrl:[NSURL URLWithString:weak_cell.model.ori_pic_url]];
             [items addObject:item];
             [weak_self showBrowserWithPhotoItems:items selectedIndex:0];
         };
@@ -423,10 +423,10 @@
     NSLog(@"selected index: %ld", index);
 }
 
-- (void)ks_photoBrowser:(KSPhotoBrowser *)browser didLongPressItem:(KSPhotoItem *)item atIndex:(NSUInteger)index {
-    UIImage *image = [browser imageForItem:item];
-    NSLog(@"long pressed image:%@", image);
-}
+//- (void)ks_photoBrowser:(KSPhotoBrowser *)browser didLongPressItem:(KSPhotoItem *)item atIndex:(NSUInteger)index {
+//    UIImage *image = [browser imageForItem:item];
+//    NSLog(@"long pressed image:%@", image);
+//}
 
 #pragma mark - 任务
 - (void)getArticleDetailData{
@@ -492,6 +492,13 @@
     } withFailureBlock:^(NSError *error) {
         HBLog(@"加载错误");
     }];
+}
+
+#pragma mark - 展开评论视图
+- (void)openCommentView{
+    ZMPopCommentView *view = [ZMPopCommentView initFrame:CGRectMake(0, 200, kScreenWidth, kScreenHeight - 200) count:[self.model.counter.comment integerValue] aid:self.aid uid:self.model.user_info.uid];
+    view.showCornerRadius = YES;
+    [view show:YES];
 }
 
 @end

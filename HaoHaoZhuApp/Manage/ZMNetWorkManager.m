@@ -218,7 +218,7 @@
     // vid_622c47e267b13d7c1d81a7e587cd7221
     NSString *token = [KUserDefaults objectForKey:KKeychainDeviceID];
     if (token.length) {
-        [manager.requestSerializer setValue:[NSString stringWithFormat:@"visitor_token=%@;",token] forHTTPHeaderField:@"Cookie"];
+        [manager.requestSerializer setValue:token forHTTPHeaderField:@"Cookie"];
     }
     if ([urlString isEqualToString: KAPIHomeRecommendMergeHead]) {
         [manager.requestSerializer setValue:@"HaoHaoZhu/3.11.0 (iPhone; iOS 12.0; Scale/2.00)" forHTTPHeaderField:@"User-Agent"];
@@ -338,20 +338,21 @@
     }
     userAgent = [NSString stringWithFormat:@"HaoHaoZhu/%@ %@(iOS/%@; %@; %@)", [[NSBundle mainBundle] infoDictionary][@"CFBundleShortVersionString"] ?: [[NSBundle mainBundle] infoDictionary][(__bridge NSString *)kCFBundleVersionKey],@"", [[UIDevice currentDevice] systemVersion],[ZMHelpUtil deviceModelName],currenLanguage];
     [manager.requestSerializer setValue:@"" forHTTPHeaderField:@"Cookie"];
-    [manager.requestSerializer setValue:@"HaoHaoZhu/3.11.0 (iPhone; iOS 12.0; Scale/2.00)" forHTTPHeaderField:@"User-Agent"];
+//    [manager.requestSerializer setValue:@"HaoHaoZhu/3.11.0 (iPhone; iOS 12.0; Scale/2.00)" forHTTPHeaderField:@"User-Agent"];
     [manager POST:KAPIGetDeviceID parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         if (KVerifyHttpSuccessCode(responseObject)) {
             NSString *uid = [ZMHelpUtil dispose:responseObject[@"data"][@"vid"]];
             //请求保存设备ID接口
             if (uid.length) {
-                [manager.requestSerializer setValue:[NSString stringWithFormat:@"visitor_token=%@",uid] forHTTPHeaderField:@"Cookie"];
-                [manager.requestSerializer setValue:@"HaoHaoZhu/3.11.0 (iPhone; iOS 12.0; Scale/2.00)" forHTTPHeaderField:@"User-Agent"];
+                NSString *name = [NSString stringWithFormat:@"visitor_token=%@;hhz_token=015a9f00454fde6f7b396fe24cd60560;",uid];
+                [manager.requestSerializer setValue:name forHTTPHeaderField:@"Cookie"];
+//                [manager.requestSerializer setValue:@"HaoHaoZhu/3.11.0 (iPhone; iOS 12.0; Scale/2.00)" forHTTPHeaderField:@"User-Agent"];
                 [manager POST:KAPISaveDeviceID parameters:nil progress:^(NSProgress * _Nonnull uploadProgress) {
                 } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
                     if (KVerifyHttpSuccessCode(responseObject)) {
                         HBLog(@"保存设备ID成功");
-                        [KUserDefaults setObject:uid forKey:KKeychainDeviceID];
+                        [KUserDefaults setObject:name forKey:KKeychainDeviceID];
                         if (successBlock) {
                             successBlock(responseObject);
                         }

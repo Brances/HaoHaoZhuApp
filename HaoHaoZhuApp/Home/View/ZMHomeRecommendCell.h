@@ -17,6 +17,6 @@
 @property (nonatomic, strong) ZMUserProfileView                 *profileView;
 @property (nonatomic, strong) ZMRecommendContentView    *mainContentView;
 @property (nonatomic, strong) ZMOperationView                   *operationView;
-@property (nonatomic, strong) ZMRecommendModel  *model;
+@property (nonatomic, strong) ZMRecommendModel              *model;
 
 @end
