@@ -14,6 +14,7 @@
 #import "CHTCollectionViewWaterfallCell.h"
 #import "CHTCollectionViewWaterfallHeader.h"
 #import "CHTCollectionViewWaterfallFooter.h"
+#import "ZMBrowseListVC.h"
 
 #define HEADER_IDENTIFIER @"WaterfallHeader"
 #define FOOTER_IDENTIFIER @"WaterfallFooter"
@@ -112,6 +113,18 @@
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row < self.dataArray.count) {
+        ZMBrowseListVC *vc = [[ZMBrowseListVC alloc] init];
+        vc.dataArray = self.dataArray;
+        vc.selectedIndex = indexPath.row;
+        vc.page = page;
+        @weakify(self);
+        vc.updateBlock = ^(NSInteger pages) {
+            page = pages;
+            [weak_self.collectionView reloadData];
+        };
+        [self.navigationController pushViewController:vc animated:YES];
+    }
     HBLog(@"点击了%ld",indexPath.row);
 }
 

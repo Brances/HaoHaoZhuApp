@@ -19,6 +19,8 @@
 		285592C4216B5D9F0037443A /* KSSDImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592BD216B5D9F0037443A /* KSSDImageManager.m */; };
 		285592C5216B5D9F0037443A /* UIImage+KS.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592BF216B5D9F0037443A /* UIImage+KS.m */; };
 		285592C8216B63A90037443A /* KSYYImageManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 285592C7216B63A80037443A /* KSYYImageManager.m */; };
+		2866CDE421CCE8DB00EA6121 /* ZMBrowseListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 2866CDE321CCE8DB00EA6121 /* ZMBrowseListVC.m */; };
+		2866CDE721CCECB100EA6121 /* ZMBrowseListCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2866CDE621CCECB100EA6121 /* ZMBrowseListCell.m */; };
 		286B7A7B21606C9200BAD086 /* ZMBeautyNodeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 286B7A7A21606C9200BAD086 /* ZMBeautyNodeCell.m */; };
 		2878AAD02159E6B800334739 /* ZMHomeTabView.m in Sources */ = {isa = PBXBuildFile; fileRef = 2878AACF2159E6B800334739 /* ZMHomeTabView.m */; };
 		2878AAD3215A254600334739 /* ZMRecommendListModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2878AAD2215A254600334739 /* ZMRecommendListModel.m */; };
@@ -160,6 +162,10 @@
 		285592BF216B5D9F0037443A /* UIImage+KS.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+KS.m"; sourceTree = "<group>"; };
 		285592C6216B63A80037443A /* KSYYImageManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KSYYImageManager.h; sourceTree = "<group>"; };
 		285592C7216B63A80037443A /* KSYYImageManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KSYYImageManager.m; sourceTree = "<group>"; };
+		2866CDE221CCE8DB00EA6121 /* ZMBrowseListVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMBrowseListVC.h; sourceTree = "<group>"; };
+		2866CDE321CCE8DB00EA6121 /* ZMBrowseListVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMBrowseListVC.m; sourceTree = "<group>"; };
+		2866CDE521CCECB100EA6121 /* ZMBrowseListCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMBrowseListCell.h; sourceTree = "<group>"; };
+		2866CDE621CCECB100EA6121 /* ZMBrowseListCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMBrowseListCell.m; sourceTree = "<group>"; };
 		286B7A7921606C9200BAD086 /* ZMBeautyNodeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMBeautyNodeCell.h; sourceTree = "<group>"; };
 		286B7A7A21606C9200BAD086 /* ZMBeautyNodeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMBeautyNodeCell.m; sourceTree = "<group>"; };
 		2878AACE2159E6B800334739 /* ZMHomeTabView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHomeTabView.h; sourceTree = "<group>"; };
@@ -558,6 +564,8 @@
 			children = (
 				289A14FA21563C4600F4EE68 /* ZMBrowseViewController.h */,
 				289A14FB21563C4600F4EE68 /* ZMBrowseViewController.m */,
+				2866CDE221CCE8DB00EA6121 /* ZMBrowseListVC.h */,
+				2866CDE321CCE8DB00EA6121 /* ZMBrowseListVC.m */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -578,6 +586,8 @@
 			children = (
 				28EC9B0021CA453200553920 /* ZMBrowseCollectionCell.h */,
 				28EC9B0121CA453200553920 /* ZMBrowseCollectionCell.m */,
+				2866CDE521CCECB100EA6121 /* ZMBrowseListCell.h */,
+				2866CDE621CCECB100EA6121 /* ZMBrowseListCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -1224,6 +1234,7 @@
 				2878AAE6215A418900334739 /* ZMAdvertListModel.m in Sources */,
 				285592C1216B5D9F0037443A /* KSPhotoItem.m in Sources */,
 				289A14BD2156257000F4EE68 /* YYFPSLabel.m in Sources */,
+				2866CDE421CCE8DB00EA6121 /* ZMBrowseListVC.m in Sources */,
 				2878AADD215A360700334739 /* ZMCounter.m in Sources */,
 				289A150221563CB500F4EE68 /* ZMTabBarViewController.m in Sources */,
 				28091AAA2160A4DC00BE2555 /* ZMSearchTagModel.m in Sources */,
@@ -1244,6 +1255,7 @@
 				289A14BE2156257000F4EE68 /* ZMNavView.m in Sources */,
 				3568AF50215FB722008164D7 /* TYPageControl.m in Sources */,
 				28C2763F215CE1DD00423021 /* ZMCustomGifHeader.m in Sources */,
+				2866CDE721CCECB100EA6121 /* ZMBrowseListCell.m in Sources */,
 				28F3AFFF216CC2AE00157880 /* ZMArticleCommentInfoModel.m in Sources */,
 				289A14DB21562D7500F4EE68 /* UIView+SafeArea.m in Sources */,
 				289A14CF2156261500F4EE68 /* ZMColor.m in Sources */,

@@ -13,10 +13,27 @@
 
 //@property (nonatomic, strong) ZMTabBarViewController *mainViewController;
 
+@property (strong, nonatomic)UIVisualEffectView *visualEffectView;
+
 @end
 
 @implementation AppDelegate
 
+- (UIVisualEffectView *)visualEffectView{
+    
+    if (!_visualEffectView) {
+        
+        UIBlurEffect *blurEffect = [UIBlurEffect effectWithStyle:UIBlurEffectStyleLight];
+        
+        _visualEffectView = [[UIVisualEffectView alloc] initWithEffect:blurEffect];
+        
+        _visualEffectView.frame = [UIScreen mainScreen].bounds;
+        
+    }
+    
+    return _visualEffectView;
+    
+}
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[ZMSettingManager shareInstance] configure];
@@ -31,16 +48,28 @@
 }
 
 
-- (void)applicationWillResignActive:(UIApplication *)application {}
+- (void)applicationWillResignActive:(UIApplication *)application {
+    
+}
 
 
-- (void)applicationDidEnterBackground:(UIApplication *)application {}
+- (void)applicationDidEnterBackground:(UIApplication *)application {
+    [[UIApplication sharedApplication].keyWindow addSubview:self.visualEffectView];
+}
 
 
-- (void)applicationWillEnterForeground:(UIApplication *)application {}
+- (void)applicationWillEnterForeground:(UIApplication *)application {
+    if (_visualEffectView) {
+        [self.visualEffectView removeFromSuperview];
+    }
+}
 
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {}
+- (void)applicationDidBecomeActive:(UIApplication *)application {
+    if (_visualEffectView) {
+        [self.visualEffectView removeFromSuperview];
+    }
+}
 
 
 - (void)applicationWillTerminate:(UIApplication *)application {}

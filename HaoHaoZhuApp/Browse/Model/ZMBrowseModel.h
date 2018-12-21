@@ -21,4 +21,11 @@
 @property (nonatomic, assign) CGFloat       remarkHeight;
 @property (nonatomic, assign) CGFloat       userInfoHeight;
 
+/** 以下是看图列表的大小 */
+@property (nonatomic, assign) CGFloat       listCellHeight; //总高度
+@property (nonatomic, assign) CGFloat       listUserInfoHeight;//用户信息高度
+@property (nonatomic, assign) CGFloat       listImageHeight;//图片高度
+@property (nonatomic, assign) CGFloat       listRemarkHeight;//描述高度
+@property (nonatomic, assign) CGFloat       listOperationHeight;//底部点赞视图等高度
+
 @end

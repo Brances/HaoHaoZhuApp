@@ -14,6 +14,7 @@
     if (self = [super initWithDictionary:dict]) {
         self.remarkHeight = 0;
         self.userInfoHeight = 20;
+        self.listRemarkHeight = 0;
         //照片信息
         self.photo = [[ZMPhotoInfoModel alloc] initWithDictionary:dict[@"photo"][@"photo_info"]];
         //用户信息
@@ -30,8 +31,21 @@
             if (self.remarkHeight > font.lineHeight * 2 + 2 * 5) {
                 self.remarkHeight = font.lineHeight * 2 + 2 * 5;
             }
+            //并计算列表文字的高度
+            self.listRemarkHeight = [UILabel text:self.photo.remark heightWithFontSize:14 width:kScreenWidth - 20 * 2 lineSpacing:5];
         }
         self.cellHeight = self.photo.image.height + 5 + self.remarkHeight + 5 + self.userInfoHeight + 15;
+        
+        //列表高度
+        self.listUserInfoHeight = 75;
+        self.listImageHeight = self.photo.listImage.height;
+        self.listOperationHeight = 50;
+        if (self.listRemarkHeight) {
+            self.listCellHeight = self.listUserInfoHeight + self.photo.listImage.height + 10 + self.listRemarkHeight + 20 + self.listOperationHeight + 20 + 10;
+        }else{
+            self.listCellHeight = self.listUserInfoHeight + self.photo.listImage.height  + 20 + self.listOperationHeight + 20 + 10;
+        }
+        
     }
     return self;
 }

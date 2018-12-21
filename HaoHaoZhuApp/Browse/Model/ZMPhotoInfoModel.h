@@ -19,5 +19,6 @@
 @property (nonatomic, copy) NSString *pin_pic_id;
 @property (nonatomic, copy) NSString *pid;
 @property (nonatomic, strong) ZMPictureMetadataModel *image;
+@property (nonatomic, strong) ZMPictureMetadataModel *listImage;
 
 @end

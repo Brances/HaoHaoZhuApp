@@ -17,6 +17,13 @@
     return _image;
 }
 
+- (ZMPictureMetadataModel *)listImage{
+    if (!_listImage) {
+        _listImage = [[ZMPictureMetadataModel alloc] init];
+    }
+    return _listImage;
+}
+
 - (instancetype)initWithDictionary:(NSDictionary *)dict{
     if (self = [super initWithDictionary:dict]) {
         self.pic_url = [ZMHelpUtil dispose:dict[@"pic_url"]];//750 * 750
@@ -34,6 +41,16 @@
         if (self.image.realWidth && self.image.realHeight) {
             self.image.width = (kScreenWidth - 20 * 2 - 15) * 0.5;
             self.image.height = (self.image.realHeight * self.image.width / self.image.realWidth) * 1;
+        }
+        //解析列表宽高
+        //解析图片宽高
+        CGSize size2 = [ZMHelpUtil getImageSizeWithUrl:self.ne_pic_url];
+        self.listImage.realWidth = size2.width;
+        self.listImage.realHeight = size2.height;
+        //如果取到了宽高
+        if (self.listImage.realWidth && self.listImage.realHeight) {
+            self.listImage.width = kScreenWidth;
+            self.listImage.height = (self.listImage.realHeight * self.listImage.width / self.listImage.realWidth) * 1;
         }
         
     }
