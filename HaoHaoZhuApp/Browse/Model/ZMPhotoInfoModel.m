@@ -2,13 +2,17 @@
 //  ZMPhotoInfoModel.m
 //  HaoHaoZhuApp
 //
-//  Created by ABC on 2018/12/19.
+//  Created by Brances on 2018/12/19.
 //  Copyright © 2018年 Brances. All rights reserved.
 //
 
 #import "ZMPhotoInfoModel.h"
 
 @implementation ZMPhotoInfoModel
+
+- (BOOL)isTag{
+    return self.tags.count;
+}
 
 - (ZMPictureMetadataModel *)image{
     if (!_image) {
@@ -33,8 +37,16 @@
         self.o_500_url = [ZMHelpUtil dispose:dict[@"o_500_url"]];  //500 * 625
         self.remark = [ZMHelpUtil dispose:dict[@"remark"]];
         self.pid = [ZMHelpUtil dispose:dict[@"id"]];
+        self.thumb_tag_pic = self.ori_pic_url;
+        NSArray *imageList = [ZMHelpUtil arrDispose:dict[@"image_list"]];
+        if (imageList.count) {
+            NSDictionary *dic = [imageList firstObject];
+            self.thumb_tag_pic = [ZMHelpUtil dispose:dic[@"o_500_url"]];
+        }
+        
         //解析图片宽高
         CGSize size = [ZMHelpUtil getImageSizeWithUrl:self.o_500_url];
+        
         self.image.realWidth = size.width;
         self.image.realHeight = size.height;
         //如果取到了宽高
@@ -44,7 +56,8 @@
         }
         //解析列表宽高
         //解析图片宽高
-        CGSize size2 = [ZMHelpUtil getImageSizeWithUrl:self.ne_pic_url];
+//        CGSize size2 = [ZMHelpUtil getImageSizeWithUrl:self.ne_pic_url];
+        CGSize size2 = [ZMHelpUtil getImageSizeWithUrl:self.thumb_tag_pic];
         self.listImage.realWidth = size2.width;
         self.listImage.realHeight = size2.height;
         //如果取到了宽高
@@ -52,7 +65,15 @@
             self.listImage.width = kScreenWidth;
             self.listImage.height = (self.listImage.realHeight * self.listImage.width / self.listImage.realWidth) * 1;
         }
-        
+        //判断有无标签
+        NSArray *tags = [ZMHelpUtil arrDispose:dict[@"tags"]];
+        NSMutableArray *temp = [NSMutableArray new];
+        for (int i = 0; i < tags.count; i++) {
+            NSDictionary *dic = [tags safeObjectAtIndex:i];
+            ZYTagInfo *model = [[ZYTagInfo alloc] initWithDictionary:dic];
+            [temp addObject:model];
+        }
+        self.tags = temp;
     }
     return self;
 }

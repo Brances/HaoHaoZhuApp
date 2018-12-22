@@ -14,5 +14,5 @@ target 'HaoHaoZhuApp' do
     pod 'MJRefresh'             #刷新  3.1.15.3
     pod 'FLAnimatedImage'   #gif播放
     pod 'SDWebImage/GIF'
-    
+    pod 'ChameleonFramework'            #轻量级颜色库
 end

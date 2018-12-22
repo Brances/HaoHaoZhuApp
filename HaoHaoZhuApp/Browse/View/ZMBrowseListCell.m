@@ -2,7 +2,7 @@
 //  ZMBrowseListCell.m
 //  HaoHaoZhuApp
 //
-//  Created by ABC on 2018/12/21.
+//  Created by Brances on 2018/12/21.
 //  Copyright © 2018年 Brances. All rights reserved.
 //
 
@@ -28,7 +28,8 @@
     self.profileView = [[ZMUserProfileView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 75)];
     [self.mainView addSubview:self.profileView];
     
-    self.coverView = [ZMImageView new];
+    self.coverView = [[ZYTagImageView alloc] initWithFrame:CGRectZero];
+    self.coverView.userInteractionEnabled = NO;
     [self.mainView addSubview:self.coverView];
  
     self.descLabel = [UILabel new];
@@ -62,9 +63,19 @@
 - (void)setModel:(ZMBrowseModel *)model{
     _model = model;
     self.profileView.user = model.user_info;
-    [self.coverView setAnimationLoadingImage:[NSURL URLWithString:model.photo.ne_pic_url] placeholder:placeholderAvatarImage];
+//    [self.coverView setAnimationLoadingImage:[NSURL URLWithString:model.photo.ne_pic_url] placeholder:placeholderAvatarImage];
+//    [self.coverView setImageWithURL:[NSURL URLWithString:model.photo.thumb_tag_pic] placeholder:placeholderAvatarImage];
+    [self.coverView setAnimationLoadingImage:[NSURL URLWithString:model.photo.thumb_tag_pic] placeholder:[YYImage imageWithColor:[UIColor randomFlatColor]]];
     [self.descLabel setText:model.photo.remark lineSpacing:5];
     self.operationView.count = model.counter;
+    if (model.photo.isTag) {
+        [self.coverView removeAllTags];
+        [self.coverView addTagsWithTagInfoArray:model.photo.tags];
+        [self.coverView setAllTagsEditEnable:NO];
+    }else{
+        //尝试添加标签
+        [self.coverView removeAllTags];
+    }
 }
 
 - (void)layoutSubviews{

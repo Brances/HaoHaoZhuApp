@@ -14,6 +14,9 @@ PODS:
   - AFNetworking/Serialization (3.2.0)
   - AFNetworking/UIKit (3.2.0):
     - AFNetworking/NSURLSession
+  - ChameleonFramework (2.1.0):
+    - ChameleonFramework/Default (= 2.1.0)
+  - ChameleonFramework/Default (2.1.0)
   - FLAnimatedImage (1.0.12)
   - FLEX (2.4.0)
   - FMDB (2.7.2):
@@ -36,6 +39,7 @@ PODS:
 
 DEPENDENCIES:
   - AFNetworking
+  - ChameleonFramework
   - FLAnimatedImage
   - FLEX
   - FMDB
@@ -48,8 +52,24 @@ DEPENDENCIES:
   - SDWebImage/GIF
   - YYKit
 
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - ChameleonFramework
+    - FLAnimatedImage
+    - FLEX
+    - FMDB
+    - IQKeyboardManager
+    - KVOController
+    - Masonry
+    - MBProgressHUD
+    - MJRefresh
+    - SDWebImage
+    - YYKit
+
 SPEC CHECKSUMS:
   AFNetworking: 8ac6017b94ea105479f7776e5288e48ae9c59bb4
+  ChameleonFramework: d21a3cc247abfe5e37609a283a8238b03575cf64
   FLAnimatedImage: 4a0b56255d9b05f18b6dd7ee06871be5d3b89e31
   FLEX: bd1a39e55b56bb413b6f1b34b3c10a0dc44ef079
   FMDB: 6198a90e7b6900cfc046e6bc0ef6ebb7be9236aa
@@ -61,6 +81,6 @@ SPEC CHECKSUMS:
   SDWebImage: de4d90b5bff3571eae7bd16202b1f43135409fa5
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 1cbd0a17bb80836335a416f0d427c13cda174047
+PODFILE CHECKSUM: dbc554bf1ad432af07e2c21334d0de660130e0bc
 
-COCOAPODS: 1.3.1
+COCOAPODS: 1.5.3

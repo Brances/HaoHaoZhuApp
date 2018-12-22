@@ -2,7 +2,7 @@
 //  ZMBrowseCollectionCell.m
 //  HaoHaoZhuApp
 //
-//  Created by ABC on 2018/12/19.
+//  Created by Brances on 2018/12/19.
 //  Copyright © 2018年 Brances. All rights reserved.
 //
 
@@ -56,7 +56,8 @@
 - (void)setModel:(ZMBrowseModel *)model{
     _model = model;
 //    [self.imageView setImageWithURL:[NSURL URLWithString:model.photo.o_500_url] placeholder:placeholderAvatarImage];
-    [self.imageView setAnimationLoadingImage:[NSURL URLWithString:model.photo.o_500_url] placeholder:placeholderAvatarImage];
+//    [self.imageView setAnimationLoadingImage:[NSURL URLWithString:model.photo.o_500_url] placeholder:placeholderAvatarImage];
+    [self.imageView setAnimationLoadingImage:[NSURL URLWithString:model.photo.o_500_url] placeholder:[YYImage imageWithColor:[UIColor randomFlatColor]]];
     if (model.photo.remark.length) {
         self.descLabel.hidden = NO;
         [self.descLabel setText:model.photo.remark lineSpacing:3];

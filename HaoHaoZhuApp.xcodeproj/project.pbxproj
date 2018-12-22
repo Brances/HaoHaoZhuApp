@@ -97,6 +97,13 @@
 		28C2763C215CC5DB00423021 /* ZMImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C2763B215CC5DB00423021 /* ZMImageView.m */; };
 		28C2763F215CE1DD00423021 /* ZMCustomGifHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C2763D215CE1DD00423021 /* ZMCustomGifHeader.m */; };
 		28C27642215CE56C00423021 /* ZMCustomGifFooter.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C27641215CE56C00423021 /* ZMCustomGifFooter.m */; };
+		28DA6EBC21CDDCF50026C0A6 /* UIView+ZYTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA6EB321CDDCF50026C0A6 /* UIView+ZYTagView.m */; };
+		28DA6EBD21CDDCF50026C0A6 /* X@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DA6EB421CDDCF50026C0A6 /* X@2x.png */; };
+		28DA6EBE21CDDCF50026C0A6 /* X@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 28DA6EB521CDDCF50026C0A6 /* X@3x.png */; };
+		28DA6EBF21CDDCF50026C0A6 /* ZYTagImageView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA6EB721CDDCF50026C0A6 /* ZYTagImageView.m */; };
+		28DA6EC021CDDCF50026C0A6 /* ZYTagInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA6EB921CDDCF50026C0A6 /* ZYTagInfo.m */; };
+		28DA6EC121CDDCF50026C0A6 /* ZYTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA6EBB21CDDCF50026C0A6 /* ZYTagView.m */; };
+		28DA6EC421CDDE560026C0A6 /* ZMTagInfoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DA6EC321CDDE560026C0A6 /* ZMTagInfoModel.m */; };
 		28DF7EF5215773080096E209 /* ZMHomeTopNavView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DF7EF4215773080096E209 /* ZMHomeTopNavView.m */; };
 		28DF7EF8215783FC0096E209 /* ZMHomeFollowView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DF7EF7215783FC0096E209 /* ZMHomeFollowView.m */; };
 		28DF7EFB215784200096E209 /* ZMHomeRecommendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 28DF7EFA215784200096E209 /* ZMHomeRecommendView.m */; };
@@ -316,6 +323,18 @@
 		28C2763E215CE1DD00423021 /* ZMCustomGifHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMCustomGifHeader.h; sourceTree = "<group>"; };
 		28C27640215CE56B00423021 /* ZMCustomGifFooter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMCustomGifFooter.h; sourceTree = "<group>"; };
 		28C27641215CE56C00423021 /* ZMCustomGifFooter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMCustomGifFooter.m; sourceTree = "<group>"; };
+		28DA6EB221CDDCF50026C0A6 /* UIView+ZYTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+ZYTagView.h"; sourceTree = "<group>"; };
+		28DA6EB321CDDCF50026C0A6 /* UIView+ZYTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+ZYTagView.m"; sourceTree = "<group>"; };
+		28DA6EB421CDDCF50026C0A6 /* X@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "X@2x.png"; sourceTree = "<group>"; };
+		28DA6EB521CDDCF50026C0A6 /* X@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "X@3x.png"; sourceTree = "<group>"; };
+		28DA6EB621CDDCF50026C0A6 /* ZYTagImageView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYTagImageView.h; sourceTree = "<group>"; };
+		28DA6EB721CDDCF50026C0A6 /* ZYTagImageView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTagImageView.m; sourceTree = "<group>"; };
+		28DA6EB821CDDCF50026C0A6 /* ZYTagInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYTagInfo.h; sourceTree = "<group>"; };
+		28DA6EB921CDDCF50026C0A6 /* ZYTagInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTagInfo.m; sourceTree = "<group>"; };
+		28DA6EBA21CDDCF50026C0A6 /* ZYTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZYTagView.h; sourceTree = "<group>"; };
+		28DA6EBB21CDDCF50026C0A6 /* ZYTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZYTagView.m; sourceTree = "<group>"; };
+		28DA6EC221CDDE560026C0A6 /* ZMTagInfoModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMTagInfoModel.h; sourceTree = "<group>"; };
+		28DA6EC321CDDE560026C0A6 /* ZMTagInfoModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMTagInfoModel.m; sourceTree = "<group>"; };
 		28DF7EF3215773080096E209 /* ZMHomeTopNavView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHomeTopNavView.h; sourceTree = "<group>"; };
 		28DF7EF4215773080096E209 /* ZMHomeTopNavView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZMHomeTopNavView.m; sourceTree = "<group>"; };
 		28DF7EF6215783FC0096E209 /* ZMHomeFollowView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZMHomeFollowView.h; sourceTree = "<group>"; };
@@ -436,6 +455,7 @@
 				767BD1183E99752794500063 /* Frameworks */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 0;
 		};
 		289A14332156127B00F4EE68 /* Products */ = {
 			isa = PBXGroup;
@@ -577,6 +597,8 @@
 				28EC9AEE21CA348A00553920 /* ZMBrowseModel.m */,
 				28EC9AF021CA34EC00553920 /* ZMPhotoInfoModel.h */,
 				28EC9AF121CA34EC00553920 /* ZMPhotoInfoModel.m */,
+				28DA6EC221CDDE560026C0A6 /* ZMTagInfoModel.h */,
+				28DA6EC321CDDE560026C0A6 /* ZMTagInfoModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -777,6 +799,7 @@
 		289A14AD2156257000F4EE68 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				28DA6EB121CDDCF50026C0A6 /* ZYTagView */,
 				28EC9AF321CA3BE500553920 /* CHTCollectionViewWaterfallLayout */,
 				285592B2216B5D9F0037443A /* KSPhotoBrowser */,
 				28091AA221609FB500BE2555 /* UICollectionViewLeftAlignedLayout */,
@@ -907,6 +930,23 @@
 			path = "MBProgressHUD+JDragon";
 			sourceTree = "<group>";
 		};
+		28DA6EB121CDDCF50026C0A6 /* ZYTagView */ = {
+			isa = PBXGroup;
+			children = (
+				28DA6EB221CDDCF50026C0A6 /* UIView+ZYTagView.h */,
+				28DA6EB321CDDCF50026C0A6 /* UIView+ZYTagView.m */,
+				28DA6EB421CDDCF50026C0A6 /* X@2x.png */,
+				28DA6EB521CDDCF50026C0A6 /* X@3x.png */,
+				28DA6EB621CDDCF50026C0A6 /* ZYTagImageView.h */,
+				28DA6EB721CDDCF50026C0A6 /* ZYTagImageView.m */,
+				28DA6EB821CDDCF50026C0A6 /* ZYTagInfo.h */,
+				28DA6EB921CDDCF50026C0A6 /* ZYTagInfo.m */,
+				28DA6EBA21CDDCF50026C0A6 /* ZYTagView.h */,
+				28DA6EBB21CDDCF50026C0A6 /* ZYTagView.m */,
+			);
+			path = ZYTagView;
+			sourceTree = "<group>";
+		};
 		28EC9AF321CA3BE500553920 /* CHTCollectionViewWaterfallLayout */ = {
 			isa = PBXGroup;
 			children = (
@@ -975,7 +1015,6 @@
 				289A142F2156127B00F4EE68 /* Frameworks */,
 				289A14302156127B00F4EE68 /* Resources */,
 				B0F643D60F50E3757E40CD30 /* [CP] Embed Pods Frameworks */,
-				B7B0C4306DFB8DE7D1720F81 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1072,11 +1111,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28DA6EBE21CDDCF50026C0A6 /* X@3x.png in Resources */,
 				28C27634215CB91E00423021 /* Gotham-Book.otf in Resources */,
 				28C27635215CB91E00423021 /* Gotham-Bold.otf in Resources */,
 				289A14422156127B00F4EE68 /* LaunchScreen.storyboard in Resources */,
 				289A143F2156127B00F4EE68 /* Assets.xcassets in Resources */,
 				289A14EF215630E800F4EE68 /* MBProgressHUD+JDragon.bundle in Resources */,
+				28DA6EBD21CDDCF50026C0A6 /* X@2x.png in Resources */,
 				2878AAD7215A2B5700334739 /* AreaByAlp.txt in Resources */,
 				2878AAD5215A2B5200334739 /* area.txt in Resources */,
 			);
@@ -1107,6 +1148,7 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-HaoHaoZhuApp/Pods-HaoHaoZhuApp-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/AFNetworking/AFNetworking.framework",
+				"${BUILT_PRODUCTS_DIR}/ChameleonFramework/ChameleonFramework.framework",
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/FLEX/FLEX.framework",
 				"${BUILT_PRODUCTS_DIR}/FMDB/FMDB.framework",
@@ -1121,6 +1163,7 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AFNetworking.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ChameleonFramework.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLEX.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FMDB.framework",
@@ -1135,21 +1178,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HaoHaoZhuApp/Pods-HaoHaoZhuApp-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B7B0C4306DFB8DE7D1720F81 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-HaoHaoZhuApp/Pods-HaoHaoZhuApp-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C97852BD9899618AD413EEA7 /* [CP] Check Pods Manifest.lock */ = {
@@ -1177,7 +1205,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28DA6EBC21CDDCF50026C0A6 /* UIView+ZYTagView.m in Sources */,
 				28917DC421C793D400A2B07A /* ZMPopCommentCell.m in Sources */,
+				28DA6EBF21CDDCF50026C0A6 /* ZYTagImageView.m in Sources */,
 				28091AA721609FB500BE2555 /* UICollectionViewLeftAlignedLayout.m in Sources */,
 				289A14C52156257000F4EE68 /* ZMNormalButton.m in Sources */,
 				28917DC721C79A5000A2B07A /* ZMPopCommentInfoModel.m in Sources */,
@@ -1223,6 +1253,8 @@
 				2878AAD3215A254600334739 /* ZMRecommendListModel.m in Sources */,
 				28DF7EF8215783FC0096E209 /* ZMHomeFollowView.m in Sources */,
 				289A14E121562D9A00F4EE68 /* ZMHelpUtil.m in Sources */,
+				28DA6EC121CDDCF50026C0A6 /* ZYTagView.m in Sources */,
+				28DA6EC021CDDCF50026C0A6 /* ZYTagInfo.m in Sources */,
 				28F3B002216CCA7A00157880 /* ZMArticleCommentCell.m in Sources */,
 				2896791F215F09A40007A704 /* ZMHouseExampleListModel.m in Sources */,
 				28B1CE34215B8E890056EE15 /* ZMOperationView.m in Sources */,
@@ -1244,6 +1276,7 @@
 				289A14FC21563C4600F4EE68 /* ZMBrowseViewController.m in Sources */,
 				3568AF52215FB722008164D7 /* TYCyclePagerTransformLayout.m in Sources */,
 				28EC9AF221CA34EC00553920 /* ZMPhotoInfoModel.m in Sources */,
+				28DA6EC421CDDE560026C0A6 /* ZMTagInfoModel.m in Sources */,
 				28B1CE2B215B4E220056EE15 /* ZMUserProfileView.m in Sources */,
 				28F3AFF3216C533100157880 /* ZMArticleQuestionAskCell.m in Sources */,
 				289A14D62156266900F4EE68 /* ZMEnum.m in Sources */,
@@ -1474,6 +1507,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B989N8J9JW;
 				INFOPLIST_FILE = HaoHaoZhuAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.HaoHaoZhuAppTests;
@@ -1488,6 +1522,7 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B989N8J9JW;
 				INFOPLIST_FILE = HaoHaoZhuAppTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.HaoHaoZhuAppTests;
@@ -1501,6 +1536,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B989N8J9JW;
 				INFOPLIST_FILE = HaoHaoZhuAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.HaoHaoZhuAppUITests;
@@ -1514,6 +1550,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = B989N8J9JW;
 				INFOPLIST_FILE = HaoHaoZhuAppUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.HaoHaoZhuAppUITests;
